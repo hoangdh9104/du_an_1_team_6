@@ -17,13 +17,27 @@
 
                 <?php foreach ($category as $fieldName => $value) : ?>
                     <tr>
-                        <td><?= ucfirst($fieldName) ?></td>
+                        <th><?php
+                         ucfirst($fieldName);
+                         switch ($fieldName) {
+                            case 'id_danhmuc':
+                                echo 'Id danh mục';
+                                break;
+                            case 'name':
+                                echo 'Tên danh mục';
+                                break;
+                            
+                            default:
+                                echo $value;
+                                break;
+                        }
+                         ?></th>
                         <td><?= $value ?></td>   
                     </tr>
                 <?php endforeach; ?>
 
             </table>
-            <a href="<?= BASE_URL_ADMIN ?>?act=tb_danhmuc" class="btn btn-danger">Back to list</a>
+            <a href="<?= BASE_URL_ADMIN ?>?act=tb_danhmuc" class="btn btn-danger">Quay lại</a>
 
         </div>
     </div>

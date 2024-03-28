@@ -55,16 +55,58 @@
                             <label for="SĐT" class="form-label">Tổng tiền:</label>
                             <input type="text" class="form-control" id="tong_tien" value="<?= $order['tong_tien'] ?>" placeholder="Enter pass" name="tong_tien">
                         </div>
-                        <div class="mb-3 mt-3">
+                        <?php
+                        if ($order['trang_thai'] == 0 || $order['trang_thai'] == 1 || $order['trang_thai'] == 2 || $order['trang_thai'] == 5) {
+                            echo '
+                            <div class="mb-3 mt-3">
                             <label for="type" class="form-label">Trạng thái:</label>
                             <select name="trang_thai" id="trang_thai" class="form-control">
-                                <option <?= $order['trang_thai'] == 0 ? 'selected' : null; ?> value="0">Chưa xử lí</option>
-                                <option <?= $order['trang_thai'] == 1 ? 'selected' : null; ?> value="1">Đã xử lí</option>
-                                <option <?= $order['trang_thai'] == 2 ? 'selected' : null; ?> value="2">Đã tiếp nhận</option>
-                                <option <?= $order['trang_thai'] == 3 ? 'selected' : null; ?> value="3">Đang giao hàng</option>
-                                <option <?= $order['trang_thai'] == 4 ? 'selected' : null; ?> value="4">Đã giao hàng</option>
+                                <option ' . ($order['trang_thai'] == 0 ? 'selected' : null) .' value="0">Chưa xử lí</option>
+                                <option ' . ($order['trang_thai'] == 1 ? 'selected' : null) .' value="1">Đã xử lí</option>
+                                <option ' . ($order['trang_thai'] == 2 ? 'selected' : null) .' value="2">Đã tiếp nhận</option>
+                                <option ' . ($order['trang_thai'] == 3 ? 'selected' : null) .' value="3">Đang giao hàng</option>
+                                <option ' . ($order['trang_thai'] == 4 ? 'selected' : null) .' value="4">Đã giao hàng</option>
+                                <option ' . ($order['trang_thai'] == 5 ? 'selected' : null) .' value="5">Đã hủy</option>
                             </select>
                         </div>
+                            ';
+                        } else if($order['trang_thai'] == 3) {
+                            echo '
+                            <div class="mb-3 mt-3">
+                            <label for="type" class="form-label">Trạng thái:</label>
+                            <select name="trang_thai" id="trang_thai" class="form-control">
+                                <option ' . ($order['trang_thai'] == 3 ? 'selected' : null) .' value="3">Đang giao hàng</option>
+                                <option ' . ($order['trang_thai'] == 4 ? 'selected' : null) .' value="4">Đã giao hàng</option>
+                                <option ' . ($order['trang_thai'] == 5 ? 'selected' : null) .' value="5">Đã hủy</option>
+                            </select>
+                        </div>
+                            ';
+                        } else if($order['trang_thai'] == 4) {
+                            echo '
+                            <div class="mb-3 mt-3">
+                            <label for="type" class="form-label">Trạng thái:</label>
+                            <select name="trang_thai" id="trang_thai" class="form-control">
+                                <option ' . ($order['trang_thai'] == 4 ? 'selected' : null) .' value="4">Đã giao hàng</option>
+                                <option ' . ($order['trang_thai'] == 5 ? 'selected' : null) .' value="5">Đã hủy</option>
+                            </select>
+                        </div>
+                            ';
+                        }else if($order['trang_thai'] == 5) {
+                            echo '
+                            <div class="mb-3 mt-3">
+                            <label for="type" class="form-label">Trạng thái:</label>
+                            <select name="trang_thai" id="trang_thai" class="form-control">
+                            <option ' . ($order['trang_thai'] == 0 ? 'selected' : null) .' value="0">Chưa xử lí</option>
+                            <option ' . ($order['trang_thai'] == 1 ? 'selected' : null) .' value="1">Đã xử lí</option>
+                            <option ' . ($order['trang_thai'] == 2 ? 'selected' : null) .' value="2">Đã tiếp nhận</option>
+                            <option ' . ($order['trang_thai'] == 3 ? 'selected' : null) .' value="3">Đang giao hàng</option>
+                            <option ' . ($order['trang_thai'] == 4 ? 'selected' : null) .' value="4">Đã giao hàng</option>
+                            <option ' . ($order['trang_thai'] == 5 ? 'selected' : null) .' value="5">Đã hủy</option>
+                            </select>
+                        </div>
+                            ';
+                        }
+                        ?>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -73,3 +115,13 @@
         </div>
     </div>
 </div>
+<!-- <div class="mb-3 mt-3">
+                            <label for="type" class="form-label">Trạng thái:</label>
+                            <select name="trang_thai" id="trang_thai" class="form-control">
+                                <option </?= $order['trang_thai'] == 0 ? 'selected' : null; ?> value="0">Chưa xử lí</option>
+                                <option </?= $order['trang_thai'] == 1 ? 'selected' : null; ?> value="1">Đã xử lí</option>
+                                <option </?= $order['trang_thai'] == 2 ? 'selected' : null; ?> value="2">Đã tiếp nhận</option>
+                                <option </?= $order['trang_thai'] == 3 ? 'selected' : null; ?> value="3">Đang giao hàng</option>
+                                <option </?= $order['trang_thai'] == 4 ? 'selected' : null; ?> value="4">Đã giao hàng</option>
+                            </select>
+                        </div> -->

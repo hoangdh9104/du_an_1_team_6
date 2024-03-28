@@ -72,8 +72,8 @@
                         
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="<?= BASE_URL_ADMIN ?>?act=tb_khuyenmai" class="btn btn-danger">Back to list</a>
+                <button type="submit" class="btn btn-primary">Tạo mới</button>
+                <a href="<?= BASE_URL_ADMIN ?>?act=tb_khuyenmai" class="btn btn-danger">Quay lại</a>
             </form>
         </div>
     </div>

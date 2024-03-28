@@ -71,6 +71,9 @@
                                     }
                                     if ($order['trang_thai'] == 4) {
                                         echo '<span class="badge badge-success">Đã giao hàng</span>';
+                                    }
+                                    if ($order['trang_thai'] == 5) {
+                                        echo '<span class="badge badge-danger">Đã hủy</span>';
                                     } ?></td>
                                 <td>
                                     <a href="<?= BASE_URL_ADMIN ?>?act=tb_donhang-detail&id=<?= $order['id']; ?>" class="btn btn-info">Chi tiết khách hàng</a>

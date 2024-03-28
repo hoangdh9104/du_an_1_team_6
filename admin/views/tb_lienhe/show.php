@@ -34,7 +34,7 @@
                 <?php endforeach; ?>
 
             </table>
-            <a href="<?= BASE_URL_ADMIN ?>?act=tb_lienhe" class="btn btn-danger">Back to list</a>
+            <a href="<?= BASE_URL_ADMIN ?>?act=tb_lienhe" class="btn btn-danger">Quay lại</a>
 
         </div>
     </div>

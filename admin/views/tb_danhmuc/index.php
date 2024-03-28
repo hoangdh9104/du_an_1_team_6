@@ -27,14 +27,12 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Tên</th>
                             <th>Trạng thái</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>ID</th>
                             <th>Tên</th>
                             <th>Trạng thái</th>
                         </tr>
@@ -45,7 +43,6 @@
                         foreach ($categories as $category) :
                         ?>
                             <tr>
-                                <td><?= $category['id_danhmuc']; ?></td>
                                 <td><?= $category['name']; ?></td>
                                 <td>
                                     <a href="<?= BASE_URL_ADMIN ?>?act=tb_danhmuc-detail&id_danhmuc=<?= $category['id_danhmuc']; ?>" class="btn btn-info">Chi tiết</a>

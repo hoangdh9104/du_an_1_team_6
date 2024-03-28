@@ -73,8 +73,8 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="<?= BASE_URL_ADMIN ?>?act=tb_lienhe" class="btn btn-danger">Back to list</a>
+                <button type="submit" class="btn btn-primary">Lưu</button>
+                <a href="<?= BASE_URL_ADMIN ?>?act=tb_lienhe" class="btn btn-danger">Quay lại</a>
             </form>
         </div>
     </div>

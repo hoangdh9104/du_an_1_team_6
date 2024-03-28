@@ -26,9 +26,7 @@
                         
                         
                     </table>
-                    <button type="submit" class="btn btn-success">Save</button>
-                    <!-- LƯU Ý ĐỔI ĐƯỜNG DẪN, ĐANG ĐỂ TẠM THỜI (act=posts) -->
-                    <a href="<?= BASE_URL_ADMIN ?>?act=tb_noidung" class="btn btn-danger">Back to list</a>
+                    <button type="submit" class="btn btn-success">Lưu</button>
                 </div>
 
             </form>

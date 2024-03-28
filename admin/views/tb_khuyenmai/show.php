@@ -17,7 +17,34 @@
 
                 <?php foreach ($coupon as $fieldName => $value) : ?>
                     <tr>
-                        <td><?= ucfirst($fieldName) ?></td>
+                        <td><?php ucfirst($fieldName);
+                            switch ($fieldName) {
+                                case 'id':
+                                    echo 'Id khuyến mại';
+                                    break;
+                                case 'ten_khuyenmai':
+                                    echo 'Tên chương trình';
+                                    break;
+                                case 'ma_khuyenmai':
+                                    echo 'Mã khuyến mại';
+                                    break;
+                                case 'thoigian_bd':
+                                    echo 'Thời gian bắt đầu';
+                                    break;
+                                case 'thoigian_kt':
+                                    echo 'Thời gian kết thúc';
+                                    break;
+                                case 'gia_tri':
+                                    echo 'Số tiền giảm giá';
+                                    break;
+                                case 'trang_thai':
+                                    echo 'Trạng thái';
+                                    break;
+                                default:
+                                    echo $value;
+                                    break;
+                            }
+                            ?></td>
                         <td>
                             <?php
                             switch ($fieldName) {
@@ -34,7 +61,7 @@
                 <?php endforeach; ?>
 
             </table>
-            <a href="<?= BASE_URL_ADMIN ?>?act=tb_khuyenmai" class="btn btn-danger">Back to list</a>
+            <a href="<?= BASE_URL_ADMIN ?>?act=tb_khuyenmai" class="btn btn-danger">Quay lại</a>
 
         </div>
     </div>

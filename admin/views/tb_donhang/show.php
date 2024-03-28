@@ -80,6 +80,9 @@
                                     if ($value == 4) {
                                         echo '<span class="badge badge-success">Đã giao hàng</span>';
                                     }
+                                    if ($value == 5) {
+                                        echo '<span class="badge badge-danger">Đã hủy</span>';
+                                    }
 
                                     break;
                                 case 'phuongthuc_thanhtoan':

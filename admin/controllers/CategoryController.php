@@ -13,7 +13,7 @@ function tb_danhmucListAll()
 }
 function tb_danhmucshowOneDanhMuc($id_danhmuc)
 {
-    $category = showOne('tb_danhmuc', $id_danhmuc);
+    $category = showOneDanhMuc('tb_danhmuc', $id_danhmuc);
 
     if (empty($category)) {
         e404();

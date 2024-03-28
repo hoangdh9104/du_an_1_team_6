@@ -26,7 +26,6 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Tên khuyến mại</th>
                             <th>Mã khuyến mại</th>
                             <th>Ngày bắt đầu</th>
@@ -38,7 +37,6 @@
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>ID</th>
                             <th>Tên khuyến mại</th>
                             <th>Mã khuyến mại</th>
                             <th>Ngày bắt đầu</th>
@@ -54,7 +52,6 @@
                         foreach ($coupons as $coupon) :
                         ?>
                             <tr>
-                                <td><?= $coupon['id']; ?></td>
                                 <td><?= $coupon['ten_khuyenmai']; ?></td>
                                 <td><?= $coupon['ma_khuyenmai']; ?></td>
                                 <td><?= $coupon['thoigian_bd']; ?></td>

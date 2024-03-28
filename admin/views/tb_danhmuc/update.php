@@ -46,9 +46,9 @@
                             <input type="text" class="form-control" id="name" value="<?= $category['name'] ?>" placeholder="Enter name" name="name">
                         </div>
                     </div>
-                    <div class="col-md-6">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="<?= BASE_URL_ADMIN ?>?act=tb_danhmuc" class="btn btn-danger">Back to list</a>
+                    <div class="col-md-6 mt-5">
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                    <a href="<?= BASE_URL_ADMIN ?>?act=tb_danhmuc" class="btn btn-danger">Quay lại</a>
                     </div>
             </form>
         </div>
