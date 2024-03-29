@@ -19,7 +19,7 @@
   <!-- <link rel="stylesheet" href="https://fonts.adobe.com/fonts/poppins#details-section+poppins-thin"> -->
   <link rel="stylesheet" href="https://www.dafontfree.net/playfair-display-bold/f59120.html">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <title>COZA STORE_MC</title>
+  <title>Arivaci & Co</title>
 </head>
 
 <body>

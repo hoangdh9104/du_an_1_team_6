@@ -1,25 +1,25 @@
 <footer id="footer">
     <div class="text-footer">
         <div class="cate">
-            <h3>CATEGORIES</h3>
-            <p><a href="">Women</a></p>
-            <p><a href="">Men</a></p>
-            <p><a href="">Shoes</a></p>
-            <p><a href="">Watches</a></p>
+            <h3>Danh mục</h3>
+            <?php foreach ($categoryTopViews as $categoryView): ?>
+                <p><a href="">
+                        <?= $categoryView['name'] ?>
+                    </a></p>
+            <?php endforeach;
+            ?>
         </div>
         <div class="help">
-            <h3>HELP</h3>
-            <p><a href="">Track Order</a></p>
-            <p><a href="">Returns</a></p>
-            <p><a href="">Shipping</a></p>
-            <p><a href="">FAQs</a></p>
+            <h3>Hỗ trợ</h3>
+            <p><a href="">Theo dõi đơn hàng</a></p>
+            <p><a href="">Vận chuyển</a></p>
+            <p><a href="">Câu hỏi ?</a></p>
         </div>
         <div class="touch">
-            <h3>GET IN TOUCH</h3>
-            <p>Any questions? Let us know in store at 8th floor,Vu Binh, Kien Xuong,Thai Binh, NY 10018 or call
-                us
+            <h3>Liên lạc</h3>
+            <p>Bạn có câu hỏi nào không? Hãy cho chúng tôi biết tại cửa hàng Trinh Van Bo, Nam Tu Liem Ha Noi
                 on
-                (+84) 968 68 68 68</p>
+                (+84) 868 489 234</p>
             <p>
                 <i class='bx bxl-facebook'></i>
                 <i class='bx bxl-instagram'></i>
@@ -27,7 +27,7 @@
             </p>
         </div>
         <div class="mail">
-            <h3>NEWSLETTER</h3>
+            <h3>Nhận bản tin</h3>
 
             <div class="input-mail">
 
@@ -51,8 +51,8 @@
             <img src="assets/client/src/img/ft5.webp" alt="">
         </div>
         <div class="text-local-footer">
-            <p>Copyright ©2022 All rights reserved | This template is made with <i class='bx bx-heart'></i> by
-                <span style="color: #007bff;cursor: pointer;">Cường đẹp trai vkl</span>
+            <p>Copyright ©2024 by Team 6 | This template is made with <i class='bx bx-heart'></i> by
+                <span style="color: #007bff;cursor: pointer;">Team 6 </span>
             </p>
         </div>
     </div>

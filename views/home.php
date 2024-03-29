@@ -4,15 +4,15 @@
 
         <div data-aos="fade-up" class="content-text-img">
             <div class="content-img">
-                <img id="image1" src="assets/client/src/img/ads1.jpg" alt="">
+                <img id="image1" src="assets/client/src/img/ads1.png" alt="">
             </div>
             <div class="text-content">
                 <div class="text-content-1">
-                    <h2>Women</h2>
-                    <p>Spring 2018</p>
+                    <h2>NẾN THƠM</h2>
+                    <p>Mới 2024</p>
                 </div>
                 <div class="content-text-2">
-                    <h3>Shop Now</h3>
+                    <h3>Mua ngay</h3>
                     <span></span>
                 </div>
             </div>
@@ -21,15 +21,15 @@
 
         <div data-aos="fade-left" class="content-text-img">
             <div class="content-img">
-                <img id="image1" src="assets/client/src/img/ads2.jpg" alt="">
+                <img id="image1" src="assets/client/src/img/ads2.png" alt="">
             </div>
             <div class="text-content">
                 <div class="text-content-1">
-                    <h2>Men</h2>
-                    <p>Spring 2018</p>
+                    <h2>VÒNG TAY</h2>
+                    <p>Mới 2024</p>
                 </div>
                 <div class="content-text-2">
-                    <h3>Shop Now</h3>
+                    <h3>Mua Ngay</h3>
                     <span></span>
                 </div>
             </div>
@@ -38,15 +38,15 @@
 
         <div data-aos="fade-up" class="content-text-img">
             <div class="content-img">
-                <img id="image1" src="assets/client/src/img/ads3.jpg" alt="">
+                <img id="image1" src="assets/client/src/img/ads3.png" alt="">
             </div>
             <div class="text-content">
                 <div class="text-content-1">
-                    <h2>Accessories</h2>
-                    <p>New Trend</p>
+                    <h2>THỦ CÔNG</h2>
+                    <p>Mới 2024</p>
                 </div>
                 <div class="content-text-2">
-                    <h3>Shop Now</h3>
+                    <h3>Mua ngay</h3>
                     <span></span>
                 </div>
             </div>
