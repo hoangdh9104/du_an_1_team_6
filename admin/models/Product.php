@@ -1,4 +1,18 @@
 <?php
+if (!function_exists('getData_tb_danhmuc')) {
+    function getData_tb_binhluan($id)
+    {
+        $sql = "SELECT tb_danhmuc.name
+                        FROM tb_sanpham
+                        INNER JOIN tb_danhmuc ON tb_danhmuc.id_danhmuc = tb_sanpham.id_danhmuc WHERE tb_sanpham.id  = :id";
+        $stmt = $GLOBALS['conn']->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $rows;
+    }
+}
+
 
 if (!function_exists('getData_tb_binhluan')) {
     function getData_tb_binhluan($id)

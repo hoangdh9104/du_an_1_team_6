@@ -31,7 +31,11 @@ function tb_sanphamCreate()
     if (!empty($_POST)) {
         $data = [
             "name" => $_POST['name'] ?? null,
-            "gia_ban" => $_POST["gia_ban"] ?? null
+            "gia_ban" => $_POST["gia_ban"] ?? null,
+            "id_danhmuc" => $_POST["id_danhmuc"] ?? null,
+            "gia_khuyenmai" => $_POST["gia_khuyenmai"] ?? null,
+            "mo_ta" => $_POST["mo_ta"] ?? null,
+            "ngay_tao" => $_POST["ngay_tao"] ?? null
         ];
         $img_thumbnail = $_FILES['img_thumbnail'] ?? null;
         if(!empty($img_thumbnail)) {
@@ -64,27 +68,60 @@ function tb_sanphamCreate()
     }
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 }
-
 function validateProductCreate($data)
-{
-    // Tên - bắt buộc, tối đa 50 kí tự, không được trùng
-
-
+{   
     $errors = [];
     if (empty($data['name'])) {
         $errors[] = 'Vui lòng nhập tên';
     } else if (strlen($data['name']) > 50) {
         $errors[] = 'Tên tối đa 50 kí tự';
     } else if (!checkUniqueName('tb_sanpham', $data['name'])) {
-        $errors[] = 'Tên danh mục đã được sử dụng';
+        $errors[] = 'Tên sản phẩm đã được sử dụng';
+    } 
+    if(!preg_match('/^\d+(\.\d{1,2})?$/', $data['gia_ban'])){
+        $errors[] = 'giá bán phải là số';
+    }
+    if(!preg_match('/^\d+(\.\d{1,2})?$/', $data['gia_khuyenmai'])){
+        $errors[] = 'giá khuyến mãi phải là số';
+    }
+    if (empty($data['mo_ta'])) {
+        $errors[] = 'Vui lòng nhập mô tả';
+    } else if (strlen($data['mo_ta']) < 10) {
+        $errors[] = 'Mô tả tối thiểu 10 kí tự';
+    }
+    if (empty($data['ngay_tao']) ) {
+        $errors[] = 'Vui lòng nhập thời gian ngày tạo';
+    }else if (isFutureTime($data['ngay_tao']) == true) {
+        $errors[] = 'Ngày tạo không hợp lệ';
+    }
+    if($data['id_danhmuc']==0){
+        $errors[] = 'trường danh mục sản phẩm là bắt buộc';
     }
     return $errors;
 }
-
+function isFutureTime($userTime) {
+    // Chuyển đổi thời gian người dùng nhập vào thành timestamp
+    $userTimestamp = strtotime($userTime);
+    
+    // Kiểm tra xem thời gian người dùng nhập vào có hợp lệ không
+    if ($userTimestamp === false) {
+        return false; // Trả về false nếu thời gian không hợp lệ
+    }
+    
+    // Lấy timestamp hiện tại
+    $currentTimestamp = time();
+    
+    // So sánh thời gian người dùng nhập vào với thời điểm hiện tại
+    if ($userTimestamp > $currentTimestamp) {
+        return true; // Trả về true nếu thời gian người dùng nhập vào lớn hơn thời điểm hiện tại
+    } else {
+        return false; // Trả về false nếu thời gian người dùng nhập vào không lớn hơn thời điểm hiện tại
+    }
+}
 function tb_sanphamUpdate($id)
 {
     $product = showOne('tb_sanpham', $id);
-
+    $dmsp = listAllDanhMuc();
     if (empty($product)) {
         e404();
     }

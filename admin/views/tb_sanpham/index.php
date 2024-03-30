@@ -26,12 +26,14 @@
             <?php
             endif;
             ?>
+            <?php $dmsp = listAllDanhMuc(); ?>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Tên</th>
+                            <td>Tên danh mục</td>
                             <th>Ảnh</th>
                             <th>Giá</th>
                             <th>Trạng thái</th>
@@ -41,19 +43,31 @@
                         <tr>
                             <th>ID</th>
                             <th>Tên</th>
+                            <td>Tên danh mục</td>
                             <th>Ảnh</th>
                             <th>Giá</th>
                             <th>Trạng thái</th>
                         </tr>
                     </tfoot>
                     <tbody>
-                    
+
                         <?php
                         foreach ($products as $product) :
                         ?>
+                            <?php
+                            $x = getData_tb_binhluan($product['id']);
+                            // debug($x);
+                            ?>
                             <tr>
                                 <td><?= $product['id']; ?></td>
                                 <td><?= $product['name']; ?></td>
+                                <td><?php
+                                    foreach ($x as $key) {
+                                        foreach ($key as $item) {
+                                            echo $item;
+                                        }
+                                    }
+                                    ?></td>
                                 <td>
                                     <img src="<?= BASE_URL . $product['img_thumbnail'] ?>" alt="" width="100px">
                                 </td>

@@ -27,27 +27,29 @@
                 <!-- bang binh luan theo san pham -->
             </table>
             <?php
-                $idKeys = [];
-                $x = getData_tb_binhluan($product['id']);
-                if(!empty($x)){
-                    foreach ($x as $key) {
-                        foreach ($key as $item) {
-                            $idKeys[] = $item;
-                        }
+            $a = 1;
+            $idKeys = [];
+            $x = getData_tb_binhluan($product['id']);
+            if (!empty($x)) {
+                foreach ($x as $key) {
+                    foreach ($key as $item) {
+                        $idKeys[] = $item;
                     }
-                }else{
-                    e404();
                 }
-                // debug($idKeys);
-                $ket_qua = layBanGhiTheoIDTrung($idKeys,'tb_binhluan');
-                // debug($ket_qua);
-                ?>
+            } else {
+                e404();
+            }
+            // debug($idKeys);
+            $ket_qua = layBanGhiTheoIDTrung($idKeys, 'tb_binhluan');
+            // debug($ket_qua);
+            ?>
             <!-- hiển thị bảng -->
             <!-- bang binh luan theo san pham -->
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <h1>Bình luận</h1>
                 <thead>
                     <tr>
+                        <th>STT</th>
                         <th>Nội dung</th>
                         <th>Thời gian</th>
                         <th>Tác giả</th>
@@ -55,6 +57,7 @@
                 </thead>
                 <tfoot>
                     <tr>
+                        <th>STT</th>
                         <th>Nội dung</th>
                         <th>Thời gian</th>
                         <th>Tác giả</th>
@@ -64,11 +67,12 @@
                     <?php
                     foreach ($ket_qua as $key) :
                     ?>
-                            <tr>
-                                <td><?= $key['noi_dung']; ?></td>
-                                <td><?= $key['thoi_gian']; ?></td>>
-                                <td><?= $key['ten_khachhang']; ?></td>
-                            </tr>
+                        <tr>
+                            <td><?= $a++ ?></td>
+                            <td><?= $key['noi_dung']; ?></td>
+                            <td><?= $key['thoi_gian']; ?></td>>
+                            <td><?= $key['ten_khachhang']; ?></td>
+                        </tr>
                     <?php
                     endforeach;
                     ?>
@@ -77,26 +81,28 @@
             <!-- end bang binh luan theo san pham -->
             <!-- hiển thị bảng -->
             <?php
-                $idKeys_danhgia = [];
-                $x = getData_tb_danhgia($product['id']);
-                if(!empty($x)){
-                    foreach ($x as $key) {
-                        foreach ($key as $item) {
-                            $idKeys_danhgia[] = $item;
-                        }
+            $a = 1;
+            $idKeys_danhgia = [];
+            $x = getData_tb_danhgia($product['id']);
+            if (!empty($x)) {
+                foreach ($x as $key) {
+                    foreach ($key as $item) {
+                        $idKeys_danhgia[] = $item;
                     }
-                }else{
-                    e404();
                 }
-                // debug($idKeys_danhgia);
-                $ket_qua = layBanGhi_forTableDanhgia($idKeys_danhgia);
-                // debug($ket_qua);
-                ?>
+            } else {
+                e404();
+            }
+            // debug($idKeys_danhgia);
+            $ket_qua = layBanGhi_forTableDanhgia($idKeys_danhgia);
+            // debug($ket_qua);
+            ?>
             <!-- bang danh gia theo san pham -->
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <h1>Đánh giá</h1>
                 <thead>
                     <tr>
+                        <th>STT</th>
                         <th>Điểm đánh giá</th>
                         <th>Nội dung</th>
                         <th>Thời gian</th>
@@ -105,6 +111,7 @@
                 </thead>
                 <tfoot>
                     <tr>
+                        <th>STT</th>
                         <th>Điểm đánh giá</th>
                         <th>Nội dung</th>
                         <th>Thời gian</th>
@@ -115,44 +122,45 @@
                     <?php
                     foreach ($ket_qua as $key) :
                     ?>
-                            <tr>
-                                <td>
-                                    <?php
-                                     switch ($key['diem_danhgia']) {
-                                        case '1':
-                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                            break;
-                                        case '2':
-                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                            break;
-                                        case '3':
-                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                            break;
-                                        case '4':
-                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                            break;
-                                        case '5':
-                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                            echo '<i class="fas fa-fw fa-star text-warning  "></i>';
-                                            break;
-                                        default:
-                                            echo null;
-                                            break;
-                                     } 
-                                    ?>
-                                </td>
-                                <td><?= $key['noi_dung']; ?></td>>
-                                <td><?= $key['thoi_gian']; ?></td>
-                                <td><?= $key['name']; ?></td>
-                            </tr>
+                        <tr>
+                            <td><?= $a++ ?></td>
+                            <td>
+                                <?php
+                                switch ($key['diem_danhgia']) {
+                                    case '1':
+                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                        break;
+                                    case '2':
+                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                        break;
+                                    case '3':
+                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                        break;
+                                    case '4':
+                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                        break;
+                                    case '5':
+                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                        echo '<i class="fas fa-fw fa-star text-warning  "></i>';
+                                        break;
+                                    default:
+                                        echo null;
+                                        break;
+                                }
+                                ?>
+                            </td>
+                            <td><?= $key['noi_dung']; ?></td>>
+                            <td><?= $key['thoi_gian']; ?></td>
+                            <td><?= $key['name']; ?></td>
+                        </tr>
                     <?php
                     endforeach;
                     ?>

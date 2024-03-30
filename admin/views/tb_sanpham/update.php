@@ -48,13 +48,56 @@
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3 mt-3">
+                            <label for="name" class="form-label">Danh mục sản phẩm:</label>
+                            <select class="form-control" name="id_danhmuc" id="">
+                                <option value="0" selected hidden>Chọn tên danh mục</option>
+                                <?php foreach ($dmsp as $key ) : ?>
+                                <?php 
+                                
+                                    if($key['id_danhmuc'] == $product['id_danhmuc']){
+                                        $s = "selected";
+                                    }else{
+                                        $s = "";
+                                    }
+                                ?>
+                                <option value="<?=$key['id_danhmuc']?>" <?=$s?> ><?=$key['name']?></option>
+                                <?php endforeach ; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3 mt-3">
+                            <label for="gia_ban" class="form-label">Giá Bán:</label>
+                            <input type="text" class="form-control" id="gia_ban" value="<?= $product['gia_ban']; ?>" placeholder="Enter gia" name="gia_ban">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3 mt-3">
+                            <label for="gia_khuyenmai" class="form-label">Giá khuyến mãi:</label>
+                            <input type="text" class="form-control" id="gia_khuyenmai" value="<?= $product['gia_khuyenmai']; ?>" placeholder="Enter gia" name="gia_khuyenmai">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3 mt-3">
+                            <label for="gia_khuyenmai" class="form-label">Mô tả:</label>
+                            <input type="text" class="form-control" name="mo_ta" id="" value="<?= $product['mo_ta']; ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3 mt-3">
+                            <label for="pass" class="form-label">Ngày tạo:</label>
+                            <input type="datetime" class="form-control" value="<?= $product['ngay_tao']; ?>" id="ngay_tao" value="" placeholder="Enter time" name="ngay_tao">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3 mt-3">
                             <label for="img_thumbnail" class="form-label">Img:</label>
                             <input type="file" class="form-control" id="img_thumbnail" name="img_thumbnail">
                         </div>
                     </div>
                     <div class="col-md-6">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="<?= BASE_URL_ADMIN ?>?act=tb_sanpham" class="btn btn-danger">Back to list</a>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a href="<?= BASE_URL_ADMIN ?>?act=tb_sanpham" class="btn btn-danger">Back to list</a>
                     </div>
             </form>
         </div>
