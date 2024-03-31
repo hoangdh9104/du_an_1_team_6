@@ -14,6 +14,7 @@
         </div>
         <div class="card-body">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <h1>Sản phẩm</h1>
                 <tr>
                     <th>Tên danh mục</th>
                     <th>Tên sản phẩm</th>
@@ -43,7 +44,7 @@
                     <td><img src="<?= BASE_URL . $product['img_thumbnail'] ?>" alt="" width="100px"></td>
                     <td><?= $product['gia_ban'] ?></td>
                     <td><?= $product['gia_khuyenmai'] ?></td>
-                    <td><?= $product['so_luong'] ?></td>
+                    <td><?= $product['so_luong'] >= 0 ? $product['so_luong'] : null ; ?></td>
                     <td><?= $product['mo_ta'] ?></td>
                     <td><?= $product['ngay_tao'] ?></td>
                 </tr>

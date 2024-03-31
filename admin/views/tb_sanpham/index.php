@@ -76,7 +76,7 @@
                                     <img src="<?= BASE_URL . $product['img_thumbnail'] ?>" alt="" width="100px">
                                 </td>
                                 <td><?= $product['gia_ban']; ?></td>
-                                <td><?= $product['so_luong']; ?></td>
+                                <td><?= $product['so_luong'] >= 0 ? $product['so_luong'] : null ; ?></td>
                                 <td><?= $product['so_luong'] > 0 ? '<span class="badge badge-success">Còn sản phẩm</span>' : '<span class="badge badge-warning">Hết sản phẩm</span>'; ?></td>
                                 <td>
                                     <a href="<?= BASE_URL_ADMIN ?>?act=tb_sanpham-detail&id=<?= $product['id']; ?>" class="btn btn-info">Chi tiết</a>
