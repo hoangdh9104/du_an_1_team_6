@@ -13,17 +13,40 @@
             </h6>
         </div>
         <div class="card-body">
-            <table class="table">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <tr>
-                    <th>Trường dữ liệu</th>
-                    <th>Dữ liệu</th>
+                    <th>Tên danh mục</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Hình ảnh</th>
+                    <th>Gía bán</th>
+                    <th>Gía khuyến mãi</th>
+                    <th>Số lượng</th>
+                    <th>Mô tả</th>
+                    <th>Ngày tạo sản phẩm</th>
                 </tr>
-                <?php foreach ($product as $fieldName => $value) : ?>
-                    <tr>
-                        <td><?= ucfirst($fieldName) ?></td>
-                        <td><?= $value ?></td>
-                    </tr>
-                <?php endforeach; ?>
+                <?php
+                ?>
+                <tr>
+                    <td>
+                        <?php
+                        foreach ($dmsp as $key) : ?>
+                            <?php
+                            if ($key['id_danhmuc'] == $product['id_danhmuc']) {
+                                echo $key['name'];
+                            } else{
+                                echo null;
+                            }
+                            ?>
+                        <?php endforeach; ?>
+                    </td>
+                    <td><?= $product['name'] ?></td>
+                    <td><img src="<?= BASE_URL . $product['img_thumbnail'] ?>" alt="" width="100px"></td>
+                    <td><?= $product['gia_ban'] ?></td>
+                    <td><?= $product['gia_khuyenmai'] ?></td>
+                    <td><?= $product['so_luong'] ?></td>
+                    <td><?= $product['mo_ta'] ?></td>
+                    <td><?= $product['ngay_tao'] ?></td>
+                </tr>
                 <!-- bang binh luan theo san pham -->
             </table>
             <?php
@@ -39,9 +62,9 @@
             } else {
                 e404();
             }
-            // debug($idKeys);
+            // debug($idKeys); 
             $ket_qua = layBanGhiTheoIDTrung($idKeys, 'tb_binhluan');
-            // debug($ket_qua);
+            // debug($ket_qua);    
             ?>
             <!-- hiển thị bảng -->
             <!-- bang binh luan theo san pham -->

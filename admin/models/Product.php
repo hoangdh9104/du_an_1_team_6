@@ -1,6 +1,6 @@
 <?php
 if (!function_exists('getData_tb_danhmuc')) {
-    function getData_tb_binhluan($id)
+    function getData_tb_danhmuc($id)
     {
         $sql = "SELECT tb_danhmuc.name
                         FROM tb_sanpham

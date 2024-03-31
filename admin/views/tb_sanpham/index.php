@@ -36,7 +36,9 @@
                             <td>Tên danh mục</td>
                             <th>Ảnh</th>
                             <th>Giá</th>
+                            <th>Số lượng</th>
                             <th>Trạng thái</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -46,7 +48,9 @@
                             <td>Tên danh mục</td>
                             <th>Ảnh</th>
                             <th>Giá</th>
+                            <th>Số lượng</th>
                             <th>Trạng thái</th>
+                            <th>Action</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -55,7 +59,7 @@
                         foreach ($products as $product) :
                         ?>
                             <?php
-                            $x = getData_tb_binhluan($product['id']);
+                            $x = getData_tb_danhmuc($product['id']);
                             // debug($x);
                             ?>
                             <tr>
@@ -72,6 +76,8 @@
                                     <img src="<?= BASE_URL . $product['img_thumbnail'] ?>" alt="" width="100px">
                                 </td>
                                 <td><?= $product['gia_ban']; ?></td>
+                                <td><?= $product['so_luong']; ?></td>
+                                <td><?= $product['so_luong'] > 0 ? '<span class="badge badge-success">Còn sản phẩm</span>' : '<span class="badge badge-warning">Hết sản phẩm</span>'; ?></td>
                                 <td>
                                     <a href="<?= BASE_URL_ADMIN ?>?act=tb_sanpham-detail&id=<?= $product['id']; ?>" class="btn btn-info">Chi tiết</a>
                                     <a href="<?= BASE_URL_ADMIN ?>?act=tb_sanpham-update&id=<?= $product['id']; ?>" class="btn btn-warning">Sửa</a>

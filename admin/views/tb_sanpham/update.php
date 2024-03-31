@@ -51,17 +51,17 @@
                             <label for="name" class="form-label">Danh mục sản phẩm:</label>
                             <select class="form-control" name="id_danhmuc" id="">
                                 <option value="0" selected hidden>Chọn tên danh mục</option>
-                                <?php foreach ($dmsp as $key ) : ?>
-                                <?php 
-                                
-                                    if($key['id_danhmuc'] == $product['id_danhmuc']){
+                                <?php foreach ($dmsp as $key) : ?>
+                                    <?php
+
+                                    if ($key['id_danhmuc'] == $product['id_danhmuc']) {
                                         $s = "selected";
-                                    }else{
+                                    } else {
                                         $s = "";
                                     }
-                                ?>
-                                <option value="<?=$key['id_danhmuc']?>" <?=$s?> ><?=$key['name']?></option>
-                                <?php endforeach ; ?>
+                                    ?>
+                                    <option value="<?= $key['id_danhmuc'] ?>" <?= $s ?>><?= $key['name'] ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
@@ -75,6 +75,12 @@
                         <div class="mb-3 mt-3">
                             <label for="gia_khuyenmai" class="form-label">Giá khuyến mãi:</label>
                             <input type="text" class="form-control" id="gia_khuyenmai" value="<?= $product['gia_khuyenmai']; ?>" placeholder="Enter gia" name="gia_khuyenmai">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3 mt-3">
+                            <label for="so_luong" class="form-label">Số lượng</label>
+                            <input type="number" class="form-control" id="" value="<?= $product['so_luong']; ?>" placeholder="Nhập số lượng sản phẩm" name="so_luong">
                         </div>
                     </div>
                     <div class="col-md-6">

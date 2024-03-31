@@ -87,6 +87,12 @@
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3 mt-3">
+                        <label for="so_luong" class="form-label">Số lượng</label>
+                        <input type="number" class="form-control" id="" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['so_luong'] : null; ?>" placeholder="Nhập số lượng sản phẩm" name="so_luong">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3 mt-3">
                         <label for="gia_khuyenmai" class="form-label">Mô tả:</label>
                         <input type="text" class="form-control" name="mo_ta" id="" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['mo_ta'] : null; ?>">
                     </div>
