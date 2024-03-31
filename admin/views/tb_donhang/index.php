@@ -30,7 +30,6 @@
                             <th>Tên</th>
                             <th>SĐT</th>
                             <th>Ngày mua hàng</th>
-                            <th>Tổng tiền</th>
                             <th>Trạng thái</th>
                             <th>Chức năng</th>
                         </tr>
@@ -41,7 +40,6 @@
                             <th>Tên</th>
                             <th>SĐT</th>
                             <th>Ngày mua hàng</th>
-                            <th>Tổng tiền</th>
                             <th>Trạng thái</th>
                             <th>Chức năng</th>
                         </tr>
@@ -56,7 +54,6 @@
                                 <td><?= $order['ten_khachhang']; ?></td>
                                 <td><?= $order['sdt']; ?></td>
                                 <td><?= $order['ngay_mua']; ?></td>
-                                <td><?= $order['tong_tien']; ?></td>
                                 <td><?php if ($order['trang_thai'] == 0) {
                                         echo '<span class="badge badge-warning">Chưa xử lí</span>';
                                     }
@@ -76,7 +73,7 @@
                                         echo '<span class="badge badge-danger">Đã hủy</span>';
                                     } ?></td>
                                 <td>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=tb_donhang-detail&id=<?= $order['id']; ?>" class="btn btn-info">Chi tiết khách hàng</a>
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=tb_donhang-detail&id=<?= $order['id']; ?>" class="btn btn-info">Chi tiết</a>
                                     <a href="<?= BASE_URL_ADMIN ?>?act=tb_donhang-update&id=<?= $order['id']; ?>" class="btn btn-warning">Sửa</a>
                                     <a href="<?= BASE_URL_ADMIN ?>?act=tb_donhang-delete&id=<?= $order['id']; ?>" class="btn btn-danger" onclick="return confirm('Bạn muốn xóa không ?')">Xóa</a>
                                 </td>

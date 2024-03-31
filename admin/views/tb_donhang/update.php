@@ -51,10 +51,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="mb-3 mt-3">
-                            <label for="SĐT" class="form-label">Tổng tiền:</label>
-                            <input type="text" class="form-control" id="tong_tien" value="<?= $order['tong_tien'] ?>" placeholder="Enter pass" name="tong_tien">
-                        </div>
+                   
                         <?php
                         if ($order['trang_thai'] == 0 || $order['trang_thai'] == 1 || $order['trang_thai'] == 2 || $order['trang_thai'] == 5) {
                             echo '

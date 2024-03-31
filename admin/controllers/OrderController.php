@@ -14,7 +14,7 @@ function tb_donhangListAll()
 function tb_donhangShowOne($id)
 {
     $order = showOne('tb_donhang', $id);
-
+    $dmsp = listAllDanhMuc();
     if (empty($order)) {
         e404();
     }

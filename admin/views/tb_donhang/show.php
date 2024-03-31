@@ -88,7 +88,7 @@
                                 case 'phuongthuc_thanhtoan':
                                     echo $value ? '<span class="badge badge-success">Tiền mặt</span>' : '<span class="badge badge-info">Online</span>';
                                     break;
-                               
+
                                 default:
                                     echo $value;
                                     break;
@@ -99,6 +99,83 @@
                 <?php endforeach; ?>
 
             </table>
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <h1>Sản phẩm</h1>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Danh mục sản phẩm</th>
+                        <th>Số lượng sản phẩm mua</th>
+                        <th>Hình ảnh sản phẩm</th>
+                        <th>Gía tiền sản phẩm</th>
+                        <th>Gía khuyến mãi sản phẩm</th>
+
+                    </tr>
+                </thead>
+                <?php
+                $a = 1;
+                $idKeys_chitiet_donhang = [];
+                $x = getData_tb_chitiet_donhang($order['id']);
+                if (!empty($x)) {
+                    foreach ($x as $key) {
+                        foreach ($key as $item) {
+                            $idKeys_chitiet_donhang[] = $item;
+                        }
+                    }
+                } else {
+                    e404();
+                }
+                $ket_qua = layBanGhi_forTableChitietDonHang($idKeys_chitiet_donhang);
+                // debug($ket_qua);
+                // lấy được id của chi tiêt đơn hàng
+                // lấy bản ghi sản phẩm có id sản phẩm = id sản phẩm bảng chi tiết đơn hàng
+                ?>
+                <tbody>
+                    <!-- dữ liệu sp thuộc về hóa đơn -->
+                    <!-- sư dụng bảng chi tiết hóa đơn để show sản phẩm -->
+                    <?php
+                    $total = 0;
+                    foreach ($ket_qua as $key) :
+                    ?>
+                        <tr>
+                            <td><?= $a++ ?></td>
+                            <td><?= $key['name']; ?></td>>
+                            <td>
+                                <?php
+                                foreach ($dmsp as $dm) : ?>
+                                    <?php
+                                    if ($dm['id_danhmuc'] == $key['id_danhmuc']) {
+                                        echo $dm['name'];
+                                    } else {
+                                        echo null;
+                                    }
+                                    ?>
+                                <?php endforeach; ?>
+                            </td>
+                            <td><?= $key['soluong_sanpham']; ?></td>
+                            <td><img src="<?= BASE_URL . $key['img_thumbnail'] ?>" alt="" width="100px"></td>
+                            <td><?= $key['gia_ban']; ?></td>
+                            <td><?= $key['gia_khuyenmai']; ?></td>
+                            <?php
+                            $total += ($key['gia_ban']*$key['soluong_sanpham']) - $key['gia_khuyenmai'];
+                            ?>
+                        </tr>
+                    <?php
+                    endforeach;
+                    ?>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="5">Tổng tiền hóa đơn</th>
+                        <th colspan="2"><?= $total ?> USD</th>
+                    </tr>
+                </tfoot>
+
+            </table>
+
+
             <a href="<?= BASE_URL_ADMIN ?>?act=tb_donhang" class="btn btn-danger">Back to list</a>
 
         </div>
