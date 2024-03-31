@@ -131,6 +131,11 @@ function tb_sanphamUpdate($id)
     if (!empty($_POST)) {
         $data = [
             "name" => $_POST['name'] ?? $product['name'],
+            "gia_ban" => $_POST["gia_ban"] ?? $product['gia_ban'],
+            "id_danhmuc" => $_POST["id_danhmuc"] ?? $product['id_danhmuc'],
+            "gia_khuyenmai" => $_POST["gia_khuyenmai"] ?? $product['gia_khuyenmai'],
+            "mo_ta" => $_POST["mo_ta"] ?? $product['mo_ta'],
+            "ngay_tao" => $_POST["ngay_tao"] ?? $product['ngay_tao']
             
         ];
         // Nếu có lỗi sẽ về giao disện
@@ -139,7 +144,6 @@ function tb_sanphamUpdate($id)
             $_SESSION['errors'] = $errors;
         } else {
             update('tb_sanpham', $id, $data);
-
             $_SESSION['success'] = 'Cập nhật thành công!';
         }
 
@@ -159,8 +163,27 @@ function validateProductUpdate($id, $data)
         $errors[] = 'Vui lòng nhập tên';
     } else if (strlen($data['name']) > 50) {
         $errors[] = 'Tên tối đa 50 kí tự';
-    } else if (!checkUniqueNameForUpdate('tb_sanpham', $id, $data['name'])) {
-        $errors[] = 'Tên danh mục đã được sử dụng';
+    } else if (!checkUniqueNameForUpdate('tb_sanpham', $id ,$data['name'])) {
+        $errors[] = 'Tên sản phẩm đã được sử dụng';
+    } 
+    if(!preg_match('/^\d+(\.\d{1,2})?$/', $data['gia_ban'])){
+        $errors[] = 'giá bán phải là số';
+    }
+    if(!preg_match('/^\d+(\.\d{1,2})?$/', $data['gia_khuyenmai'])){
+        $errors[] = 'giá khuyến mãi phải là số';
+    }
+    if (empty($data['mo_ta'])) {
+        $errors[] = 'Vui lòng nhập mô tả';
+    } else if (strlen($data['mo_ta']) < 10) {
+        $errors[] = 'Mô tả tối thiểu 10 kí tự';
+    }
+    if (empty($data['ngay_tao']) ) {
+        $errors[] = 'Vui lòng nhập thời gian ngày tạo';
+    }else if (isFutureTime($data['ngay_tao']) == true) {
+        $errors[] = 'Ngày tạo không hợp lệ';
+    }
+    if($data['id_danhmuc']==0){
+        $errors[] = 'trường danh mục sản phẩm là bắt buộc';
     }
    
     return $errors;

@@ -51,7 +51,7 @@
                         <a href="features.html"></a><i class="fa-solid fa-cart-shopping"></i>
                     </div>
                     <div class="icons heart">
-                        <a href="signin.html"> <i class='bx bxs-user'></i></a>
+                        <a href=""> <i class='bx bxs-user'></i></a>
                     </div>
                     <div class="toggle">
                         <i class='bx bx-sun'></i>

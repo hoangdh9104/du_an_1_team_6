@@ -9,7 +9,6 @@ require_once './commons/model.php';
 // Require file trong controllers và models
 require_file(PATH_CONTROLLER);
 require_file(PATH_MODEL);
-
 // Điều hướng
 $act = $_GET['act'] ?? '/';
 
@@ -19,13 +18,13 @@ $arrRouteNeedAuth = [
 ]; 
 
 // Kiểm tra xem user đã đăng nhập chưa
-// middleware_auth_check($act, $arrRouteNeedAuth);
+// middleware_auth_check($act);
 
 match($act) {
     '/' => homeIndex(),
     // Authen
-    // 'login' => authenShowFormLogin(),
-    // 'logout' => authenLogout(),
+    'login' => authenShowFormLogin(),
+    'logout' => authenLogout(),
 };
 
 require_once './commons/disconnect-db.php';
