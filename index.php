@@ -24,6 +24,7 @@ match($act) {
     // Authen
     'login' => authenShowFormLogin(),
     'logout' => authenLogout(),
+    'sing-up' => authenShowFormSingup()
 };
 
 require_once './commons/disconnect-db.php';

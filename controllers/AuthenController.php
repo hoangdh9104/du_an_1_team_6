@@ -7,6 +7,13 @@ function authenShowFormLogin() {
 
     require_once PATH_VIEW . 'authen/login.php';
 }
+function authenShowFormSingup() {
+    if (!empty($_POST)) {
+        authenLogin();
+    }
+
+    require_once PATH_VIEW . 'authen/adduser.php';
+}
 
 function authenLogin() {
     $user = getUserClientByEmailAndPassword($_POST['email'], $_POST['password']);
