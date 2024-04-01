@@ -62,7 +62,7 @@
         </a>
         <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?= BASE_URL_ADMIN ?>?act=tb_noidung">Danh sách</a>
+                <a class="collapse-item" href="<?= BASE_URL_ADMIN ?>?act=setting-form">Danh sách</a>
             </div>
         </div>
     </li>

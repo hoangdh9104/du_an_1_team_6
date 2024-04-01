@@ -65,8 +65,8 @@ match($act) {
     // CRUD đánh giá
     
     //Setting
-    'tb_noidung' => settingShowForm(),
-    'tb_noidung-save' => settingSave(),
+    'setting-form' => settingShowForm(),
+    'setting-save' => settingSave(),
     // CRUD đơn hàng
     'tb_donhang' => tb_donhangListAll(),
     'tb_donhang-detail' => tb_donhangShowOne($_GET['id']),

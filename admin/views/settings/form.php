@@ -9,7 +9,7 @@
             </h6>
         </div>
         <div class="card-body">
-            <form action="<?= BASE_URL_ADMIN . '?act=tb_noidung-save'; ?>" method="post">
+            <form action="<?= BASE_URL_ADMIN . '?act=setting-save' ?>" method="post">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <tr>
@@ -22,6 +22,18 @@
                                 <input type="text" class="form-control" name="logo" id="logo" value="<?= $settings['logo'] ?? null ?>">
                             </td>
 
+                        </tr>
+                        <tr>
+                            <td>Overview</td>
+                            <td>
+                                <textarea type="text" class="form-control" name="overview"><?= $settings['overview'] ?? null ?></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>test</td>
+                            <td>
+                                <input type="text" class="form-control" name="test" value="<?= $settings['test'] ?? null ?>">
+                            </td>
                         </tr>
                         
                         

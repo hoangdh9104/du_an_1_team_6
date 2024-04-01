@@ -7,7 +7,7 @@ if (!function_exists('settingUpdateByKey')) {
         try {
             $setParams = get_set_params($data);
 
-            $sql = "UPDATE tb_noidung SET $setParams WHERE `key` = :key";
+            $sql = "UPDATE settings SET $setParams WHERE `key` = :key";
 
             $stmt = $GLOBALS['conn']->prepare($sql);
 

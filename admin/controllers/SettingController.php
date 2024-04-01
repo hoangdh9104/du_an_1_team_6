@@ -2,7 +2,7 @@
 function settingShowForm()
 {
     $title = 'Danh sách setting';
-    $views = 'tb_noidung/form';
+    $views = 'settings/form';
 
 
     $settings = settingPluckKeyValue();
@@ -12,44 +12,36 @@ function settingShowForm()
 function settingSave()
 {
 
-   
+
     $settings = settingPluckKeyValue();
-    // if(empty($_POST['logo'])){
-    //     echo 'Có tồn tại';
-    // };
-    // debug($_POST);
     foreach ($_POST as $key => $value) {
         if (isset($settings[$key])) {
-            //         // Update
-            // debug($settings['key']); die; 
-            if($value != $settings[$key]){
+            if ($value != $settings[$key]) {
                 settingUpdateByKey($key, [
                     'value' => $value
                 ]);
             }
-            } else {
-                // Insert 
-                insert('tb_noidung', [
-                    'key' => $key,
-                    'value' => $value
-                ]); 
-            //     // debug($key); die;
+        } else {
+            insert('settings', [
+                'key' => $key,
+                'value' => $value
+            ]);
         }
     };
     $_SESSION['success'] = 'Thao tác thành công!';
 
-    header('Location: ' . BASE_URL_ADMIN . '?act=tb_noidung');
+    header('Location: ' . BASE_URL_ADMIN . '?act=setting-form');
     exit();
 }
-
+// kỹ năng biến value thành key
 function settingPluckKeyValue()
 {
-    $data = listAll('tb_noidung');
+    $data = listAll('settings');
     // debug($data);
-    
+
     $settings = [];
     foreach ($data as $item) {
-       
+
         $settings[$item['key']] = $item['value'];
     }
     return $settings;
