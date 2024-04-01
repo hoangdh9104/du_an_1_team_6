@@ -60,12 +60,12 @@
             <div class="menu-filter-product">
                 <div class="menu-product">
                     <ul>
-                    <?php foreach($categoryTopViews as $categoryView): ?>
-                        <li><a href=""><?= $categoryView['name']?></a></li>
+                        <?php foreach ($categoryTopViews as $categoryView) : ?>
+                            <li><a href=""><?= $categoryView['name'] ?></a></li>
                         <?php endforeach;
-                    ?>
+                        ?>
                     </ul>
-                   
+
                 </div>
                 <div class="filter-product">
                     <div class="filter">
@@ -77,34 +77,29 @@
                 </div>
             </div>
         </div>
-
-        <?php foreach($productTopViews as $productTopView): ?>
         <div class="image-product">
-
-
-            <div class="item-image-product" data-aos="fade-up">
-                <div class="test">
-                <img src="<?= BASE_URL . $productTopView['img_thumbnail'] ?>" alt="" width="100%">
-                </div>
-                <p><a onclick="showProduct()">Quick View</a></p>
-                <div class="name-item-image-product">
-                    <div class="price-name-item-image-product">
-                        <p><?= $productTopView['name'] ?></p>
-                        <p><?= $productTopView['gia_ban'] ?></p>
+            <?php foreach ($productTopViews as $productTopView) : ?>
+                <div class="item-image-product" data-aos="fade-up">
+                    <div class="test">
+                        <img src="<?= BASE_URL . $productTopView['img_thumbnail'] ?>" alt="" width="100%">
                     </div>
-                    <div class="heart-name-item-image-product">
+                    <p><a onclick="showProduct()">Quick View</a></p>
+                    <div class="name-item-image-product">
+                        <div class="price-name-item-image-product">
+                            <p><?= $productTopView['name'] ?></p>
+                            <p><?= $productTopView['gia_ban'] ?></p>
+                        </div>
+                        <div class="heart-name-item-image-product">
 
-                        <i id="bxs" onclick="addHeart()" class='bx bxs-heart'></i>
+                            <i id="bxs" onclick="addHeart()" class='bx bxs-heart'></i>
+                        </div>
+
                     </div>
 
                 </div>
-
-            </div>
-
+            <?php endforeach;
+            ?>
         </div>
-        <?php endforeach;
-        
-        ?>
 
 
         <div class="btn-product">
