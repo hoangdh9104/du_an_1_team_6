@@ -1,3 +1,4 @@
+
 <div id="main">
 
     <div id="content">
@@ -83,14 +84,13 @@
                     <div class="test">
                         <img src="<?= BASE_URL . $productTopView['img_thumbnail'] ?>" alt="" width="100%">
                     </div>
-                    <p><a onclick="showProduct()">Quick View</a></p>
+                    <p><a href="#" onclick="showProduct()">Quick View</a></p>
                     <div class="name-item-image-product">
                         <div class="price-name-item-image-product">
                             <p><?= $productTopView['name'] ?></p>
                             <p><?= $productTopView['gia_ban'] ?></p>
                         </div>
                         <div class="heart-name-item-image-product">
-
                             <i id="bxs" onclick="addHeart()" class='bx bxs-heart'></i>
                         </div>
 

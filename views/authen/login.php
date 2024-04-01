@@ -82,9 +82,6 @@
             </div>
         </div>
     </div>
-
-
-
     <div id="main">
 
         <div class="SignIn container">
@@ -165,9 +162,6 @@
 
             </div>
         </div>
-
-
-
         <div class="local-footer">
             <div class="image-logo-footer">
                 <img src="src/img/ft1.webp" alt="">
@@ -188,8 +182,6 @@
         </div>
     </div>
     <script src="src/js/main.js"></script>
-
-
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 // Require file trong commons
 require_once './commons/env.php';
 require_once './commons/helper.php';
@@ -19,7 +19,6 @@ $arrRouteNeedAuth = [
 
 // Kiểm tra xem user đã đăng nhập chưa
 // middleware_auth_check($act);
-
 match($act) {
     '/' => homeIndex(),
     // Authen

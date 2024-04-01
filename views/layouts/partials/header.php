@@ -10,7 +10,7 @@
                 <div class="list-header">
                     <ul>
                         <li><a href=""> Trợ Giúp</a></li>
-                        <li><a href=""> My Account</a></li>
+                        <li><a href="">My Account</a></li>
                     </ul>
                 </div>
             </div>
@@ -18,8 +18,7 @@
         <div class="sub-nav" id="nav">
             <div class="nav">
                 <div class="photo-logo">
-                    <a href="index.html"><img src="assets/client/src/img/logo.png" style="cursor: pointer;"
-                            alt="" /></a>
+                    <a href="index.html"><img src="assets/client/src/img/logo.png" style="cursor: pointer;" alt="" /></a>
                 </div>
                 <!-- dùng thẻ nav -->
                 <nav>
@@ -50,16 +49,39 @@
                     <div class="icons cart">
                         <a href="features.html"></a><i class="fa-solid fa-cart-shopping"></i>
                     </div>
-                    <div class="icons heart">
-                        <a href=""> <i class='bx bxs-user'></i></a>
-                    </div>
+                    <?php
+                    if (!isset($_SESSION['user'])) :
+                    ?>
+                        <div class="icons heart">
+                            <a href="?act=login"> <i class='bx bxs-user'></i></a>
+                        </div>
+                    <?php else : ?>
+                        <div class="dropdown">
+                            <div class="namngang">
+                                <img class="dropbtn" width="40px" height="40px" src="<?= BASE_URL ?>assets/admin/img/undraw_profile.svg">
+                                <span><?= $_SESSION['user']['name'] ?></span>
+                            </div>
+                            <div class="dropdown-content" >
+                                <?php
+                                if ($_SESSION['user']['type'] == 1) :
+                                ?>
+                                <a href="<?= BASE_URL_ADMIN?>">
+                                    Vào trang admin
+                                </a>
+                                <?php endif; ?>
+                                <a class="" href="">
+                                    Quản lý tài khoản
+                                </a>
+                                <a class="" href="<?= BASE_URL ?>?act=logout" >
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                     <div class="toggle">
                         <i class='bx bx-sun'></i>
                     </div>
                 </div>
             </div>
-
-
-
         </div>
 </header>
