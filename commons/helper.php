@@ -27,16 +27,15 @@ if (!function_exists('e404')) {
         die;
     }
 }
-
 if (!function_exists('middleware_auth_check')) {
-    function middleware_auth_check($act) {
+    function middleware_auth_check($act, $arrRouteNeedAuth) {
         if ($act == 'login') {
             if (!empty($_SESSION['user'])) {
                 header('Location: ' . BASE_URL);
                 exit();
             }
         } 
-        elseif (empty($_SESSION['user']) ) {
+        elseif (empty($_SESSION['user']) && in_array($act, $arrRouteNeedAuth)) {
             header('Location: ' . BASE_URL . '?act=login');
             exit();
         }

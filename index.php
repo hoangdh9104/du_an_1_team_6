@@ -14,11 +14,18 @@ $act = $_GET['act'] ?? '/';
 
 // Biến này cần khai báo được link cần đăng nhập mới vào được
 $arrRouteNeedAuth = [
-    
+    'cart-add',
+    // 'cart-list',
+    'cart-inc',
+    'cart-dec',
+    'cart-del',
+    'order-checkout',
+    'order-purchase',
+    'order-success'
 ]; 
 
 // Kiểm tra xem user đã đăng nhập chưa
-// middleware_auth_check($act);
+middleware_auth_check($act,$arrRouteNeedAuth);
 match($act) {
     '/' => homeIndex(),
     // Authen
