@@ -32,7 +32,7 @@
                         <?php
                         foreach ($dmsp as $key) : ?>
                             <?php
-                            if ($key['id_danhmuc'] == $product['id_danhmuc']) {
+                            if ($key['id'] == $product['id_danhmuc']) {
                                 echo $key['name'];
                             } else{
                                 echo null;
