@@ -25,7 +25,7 @@
                     <div class="list-menu">
                         <ul>
                             <li>
-                                <a href="index.html" id="home"> Trang chủ
+                                <a href="?act=/" id="home"> Trang chủ
                                     <ul class="sub-menu">
                                         <li><a href="">Homepage 1</a></li>
                                         <li><a href="">Homepage 1</a></li>

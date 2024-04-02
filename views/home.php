@@ -1,4 +1,18 @@
+<div class="slider">
 
+    <div class="title-slider">
+        <div class="text-animation">
+            <h5>Painting Collection 2024</h5>
+            <h3>NEW ARRIVALS</h3>
+            <button>SHOP NOW</button>
+        </div>
+    </div>
+
+</div>
+<!-- Background -->
+<div class="background">
+    <img src="assets/client/src/img/slide1.png" alt="">
+</div>
 <div id="main">
 
     <div id="content">

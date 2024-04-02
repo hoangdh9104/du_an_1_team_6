@@ -2,12 +2,16 @@
     <div class="text-footer">
         <div class="cate">
             <h3>Danh mục</h3>
-            <?php foreach ($categoryTopViews as $categoryView): ?>
-                <p><a href="">
-                        <?= $categoryView['name'] ?>
-                    </a></p>
-            <?php endforeach;
+            <?php if (isset($categoryTopViews)) : ?>
+                <?php foreach ($categoryTopViews as $categoryView) : ?>
+                    <p><a href="">
+                            <?= $categoryView['name'] ?>
+                        </a></p>
+                <?php endforeach;
+                ?>
+            <?php endif;
             ?>
+
         </div>
         <div class="help">
             <h3>Hỗ trợ</h3>

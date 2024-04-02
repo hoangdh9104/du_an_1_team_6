@@ -1,18 +1,18 @@
 <?php 
 
 function authenShowFormLogin() {
+    $views = 'authen/login';
     if (!empty($_POST)) {
         authenLogin();
     }
-
-    require_once PATH_VIEW . 'authen/login.php';
+    require_once PATH_VIEW . 'layouts/master.php';
 }
 function authenShowFormSingup() {
+    $views = 'authen/adduser';  
     if (!empty($_POST)) {
         authenLogin();
     }
-
-    require_once PATH_VIEW . 'authen/adduser.php';
+    require_once PATH_VIEW . 'layouts/master.php';
 }
 
 function authenLogin() {
