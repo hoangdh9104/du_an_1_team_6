@@ -21,5 +21,15 @@ define('DB_PORT',           '3306');
 define('DB_USERNAME',       'root');
 define('DB_PASSWORD',       '');
 define('DB_NAME',           'du_an_1_team6');
+define('STATUS_DELIVERY_WFC',       0);     // WAITING FOR CONFIRMATION - chờ xác nhận
+define('STATUS_DELIVERY_WFP',       1);     // WAITING FOR PICKUP - chờ lấy hàng ~ Đã xử lí
+define('STATUS_DELIVERY_CF',        2);     // WAITING FOR CONFIRM - Đã tiếp nhận
+define('STATUS_DELIVERY_WFD',       3);     // WAITING FOR DELIVERY - chờ giao hàng ~ Đang giao hàng
+define('STATUS_DELIVERY_ED',        4);     // DELIVERED - đã giao 
+define('STATUS_DELIVERY_CED',       5);    // CANCELED - đã hủy
+
+define('STATUS_PAYMENT_UNPAID',     0);     // chưa thanh toán ~ Online
+define('STATUS_PAYMENT_PAID',       1);     // đã thanh toán ~ Ship COD
+// define('STATUS_PAYMENT_CANCELED',   -1);    // đơn hàng đã hủy
 
 

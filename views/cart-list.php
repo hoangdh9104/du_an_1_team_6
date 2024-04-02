@@ -76,47 +76,48 @@
 
 
             <div class="Subtotal">
-                <p>Giảm giá:</p>
+                <p>Subtotal:</p>
                 <p><span>$</span>79.65</p>
             </div>
 
 
 
-            <div class="">
+            <div class="Shipping">
                 <div class="text">
                     <p>Shipping:</p>
                 </div>
 
-                <div class="">
+                <div class="text-shipping">
 
-                    <!-- <p> There are no shipping methods available. Please double check your address, or contact us
-                        if you need any help.</p>
-                    <p>CALCULATE SHIPPING</p> -->
-                    <form action="<?= BASE_URL . '?act=order-purchase'?>" onsubmit="return validateCart()" method="POST">
+                    <p> Để chào mừng cửa hàng đầu tiên khai trương, chúng tôi sẽ Free Ship cho toàn bộ đơn hàng từ 01/04/2024 - 05/05/2024.</p>
+                    <p>Mã giảm giá</p>
+                    <form action="" onsubmit="return validateCart()">
                         <!-- <select name="" id="option">
                             <option value="0">select a country</option>
                             <option value="1">Thai Binh</option>
                             <option value="2">Ha Noi</option>
                             <option value="3">Quang Lich</option>
                         </select> -->
-                        <input type="text" id="ten_khachhang" name="ten_khachhang" value="<?= $_SESSION['user']['name'] ?>" required placeholder="Tên khách hàng">
-                        <input type="email" id="email" name="email" value="<?= $_SESSION['user']['email'] ?>" required placeholder="Email">
-                        <input type="tel" id="sdt" name="sdt" required placeholder="Số điện thoại">
-                        <input type="text" id="diachi_muahang" name="diachi_muahang" required placeholder="Địa chỉ">
-                        <input type="submit" name="" value="Thanh toán" id="">
+                        <?php
+                        foreach ($coupon as $item) : 
+                        if($item['trang_thai'] == 1) :?>
+                            <input type="text" id="coupon" name="ma_khuyenmai" value="<?= $item['ma_khuyenmai']?>" disabled>
+                        <?php
+                        endif;
+                        endforeach;
+                        ?>
 
                     </form>
 
                 </div>
             </div>
             <div class="total-cart">
-                <p>Total : </p>
-                <p><?= caculator_total_order(); ?> VND</p>
+                <p>Total</p>
+                <p><span>$</span>79.65</p>
             </div>
             <a href="<?= BASE_URL . '?act=order-checkout' ?>">
                 <input type="submit" value="PROCEED TO CHECKOUT" name="" id="">
             </a>
-            <a href="<?= BASE_URL ?>" onclick="return confirm('Bạn muốn thoát khỏi thanh toán')" class="btn btn-warning">Quay lại trang chủ</a>
 
         </div>
     </div>

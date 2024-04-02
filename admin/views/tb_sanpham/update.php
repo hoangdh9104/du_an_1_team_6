@@ -54,13 +54,13 @@
                                 <?php foreach ($dmsp as $key) : ?>
                                     <?php
 
-                                    if ($key['id_danhmuc'] == $product['id_danhmuc']) {
+                                    if ($key['id'] == $product['id_danhmuc']) {
                                         $s = "selected";
                                     } else {
                                         $s = "";
                                     }
                                     ?>
-                                    <option value="<?= $key['id_danhmuc'] ?>" <?= $s ?>><?= $key['name'] ?></option>
+                                    <option value="<?= $key['id'] ?>" <?= $s ?>><?= $key['name'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

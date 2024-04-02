@@ -6,7 +6,7 @@ if(!function_exists('listAllDanhMuc')) {
 
         try {
             $sql = "
-            SELECT `id_danhmuc`, `name` FROM `tb_danhmuc` WHERE 1";
+            SELECT `id`, `name` FROM `tb_danhmuc` WHERE 1";
             $stmt = $GLOBALS["conn"]->prepare($sql);
             $stmt->execute();
 
@@ -23,7 +23,7 @@ if(!function_exists('listAllDanhMuc')) {
 if (!function_exists('showOneDanhMuc')) {
     function showOneDanhMuc($tableName, $id_danhmuc) {
         try {
-            $sql = "SELECT * FROM $tableName WHERE id_danhmuc = :id_danhmuc LIMIT 1";
+            $sql = "SELECT * FROM $tableName WHERE id = :id_danhmuc LIMIT 1";
 
             $stmt = $GLOBALS['conn']->prepare($sql);
 
@@ -41,7 +41,7 @@ if (!function_exists('showOneDanhMuc')) {
 if (!function_exists('deleteDanhMuc')) {
     function deleteDanhMuc($tableName, $id_danhmuc) {
         try {
-            $sql = "DELETE FROM $tableName WHERE id_danhmuc = :id_danhmuc";
+            $sql = "DELETE FROM $tableName WHERE id = :id_danhmuc";
             
             $stmt = $GLOBALS['conn']->prepare($sql);
 
@@ -58,7 +58,7 @@ if (!function_exists('updateDanhMuc')) {
         try {
             $setParams = get_set_params($data);
 
-            $sql = "UPDATE $tableName SET $setParams WHERE id_danhmuc = :id_danhmuc";
+            $sql = "UPDATE $tableName SET $setParams WHERE id = :id_danhmuc";
             
             $stmt = $GLOBALS['conn']->prepare($sql);
 

@@ -24,7 +24,20 @@ match($act) {
     // Authen
     'login' => authenShowFormLogin(),
     'logout' => authenLogout(),
-    'sing-up' => authenShowFormSingup()
+    'sing-up' => authenShowFormSingup(),
+    // Cart
+    // 'cart' => cartViews(),
+    'cart-add' => cartAdd($_GET['id_sanpham'], $_GET['so_luong']),
+    'cart-list' => cartList(),
+    'cart-inc' => cartInc($_GET['id_sanpham']),
+    'cart-dec' => cartDec($_GET['id_sanpham']),
+    'cart-del' => cartDel($_GET['id_sanpham']),
+
+    'order-checkout' => orderCheckOut(),
+    'order-purchase' => orderPurchase(),
+    'order-success' => orderSuccess(),
+
+    
 };
 
 require_once './commons/disconnect-db.php';

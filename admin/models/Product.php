@@ -4,7 +4,7 @@ if (!function_exists('getData_tb_danhmuc')) {
     {
         $sql = "SELECT tb_danhmuc.name
                         FROM tb_sanpham
-                        INNER JOIN tb_danhmuc ON tb_danhmuc.id_danhmuc = tb_sanpham.id_danhmuc WHERE tb_sanpham.id  = :id";
+                        INNER JOIN tb_danhmuc ON tb_danhmuc.id = tb_sanpham.id_danhmuc WHERE tb_sanpham.id  = :id";
         $stmt = $GLOBALS['conn']->prepare($sql);
         $stmt->bindParam(":id", $id);
         $stmt->execute();

@@ -145,7 +145,7 @@
                                 <?php
                                 foreach ($dmsp as $dm) : ?>
                                     <?php
-                                    if ($dm['id_danhmuc'] == $key['id_danhmuc']) {
+                                    if ($dm['id'] == $key['id_danhmuc']) {
                                         echo $dm['name'];
                                     } else {
                                         echo null;

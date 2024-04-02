@@ -45,9 +45,9 @@
                             <tr>
                                 <td><?= $category['name']; ?></td>
                                 <td>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=tb_danhmuc-detail&id_danhmuc=<?= $category['id_danhmuc']; ?>" class="btn btn-info">Chi tiết</a>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=tb_danhmuc-update&id_danhmuc=<?= $category['id_danhmuc']; ?>" class="btn btn-warning">Sửa</a>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=tb_danhmuc-delete&id_danhmuc=<?= $category['id_danhmuc']; ?>" class="btn btn-danger" onclick="return confirm('Bạn muốn xóa không ?')">Xóa</a>
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=tb_danhmuc-detail&id_danhmuc=<?= $category['id']; ?>" class="btn btn-info">Chi tiết</a>
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=tb_danhmuc-update&id_danhmuc=<?= $category['id']; ?>" class="btn btn-warning">Sửa</a>
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=tb_danhmuc-delete&id_danhmuc=<?= $category['id']; ?>" class="btn btn-danger" onclick="return confirm('Bạn muốn xóa không ?')">Xóa</a>
                                 </td>
                             </tr>
                         <?php

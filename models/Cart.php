@@ -1,14 +1,25 @@
 <?php
+function getCartID( $userID){
+    // Lấy dữ liệu trong db
+    $cart = getCartByUserID($userID);
+
+    if(empty($cart)){
+        return insert_get_last_id('tb_giohang', [
+            'id_taikhoan' => $userID
+        ]);
+    }
+    return $cart['id'];
+}   
 // Lấy dữ liệu của giỏ hàng theo của người dùng
 if (!function_exists('getCartByUserID')) {
-    function getCartByUserID($user_id)
+    function getCartByUserID($userID)
     {
         try {
-            $sql = "SELECT * FROM carts WHERE user_id = :user_id";
+            $sql = "SELECT * FROM tb_giohang WHERE id_taikhoan = :id_taikhoan";
 
             $stmt = $GLOBALS['conn']->prepare($sql);
 
-            $stmt->bindParam(":user_id", $user_id);
+            $stmt->bindParam(":id_taikhoan", $userID);
 
             $stmt->execute();
 

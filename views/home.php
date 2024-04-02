@@ -74,12 +74,33 @@
             <h3>Product Overview</h3>
             <div class="menu-filter-product">
                 <div class="menu-product">
-                    <ul>
-                        <?php foreach ($categoryTopViews as $categoryView) : ?>
-                            <li><a href=""><?= $categoryView['name'] ?></a></li>
-                        <?php endforeach;
-                        ?>
-                    </ul>
+
+                    <h4>Bộ lọc</h4>
+                    <form action="" method="GET">
+                        <div class="form-group">
+                            <label for="category">Danh mục:</label>
+                            <select class="col-6 col-sm-8" name="id_danhmuc">
+                                <option value="">Tất cả</option>
+                                <?php foreach ($catelogues as $catelogue) : ?>
+                                    <option value="<?= $catelogue['id'] ?>"><?= $catelogue['name'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="col-6 col-sm-8">
+                            <label for="name">Tên sản phẩm:</labsel>
+                                <input type="text" class="col-6 col-sm-8" name="sanpham_name">
+                        </div>
+                        <div class="col-6 col-sm-8">
+                            <label for="gia_ban">Giá thấp nhất:</label>
+                            <input type="number" class="col-6 col-sm-8" name="gia_ban_min">
+                        </div>
+                        <div class="col-6 col-sm-8">
+                            <label for="gia_ban">Giá cao nhất:</label>
+                            <input type="number" class="col-6 col-sm-8" name="gia_ban_max">
+                        </div>
+                        <button type="submit" name="search" class="btn btn-primary mt-3">Áp dụng</button>
+                    </form>
+
 
                 </div>
                 <div class="filter-product">
@@ -93,16 +114,17 @@
             </div>
         </div>
         <div class="image-product">
-            <?php foreach ($productTopViews as $productTopView) : ?>
+            <?php foreach ($products as $product) : ?>
                 <div class="item-image-product" data-aos="fade-up">
                     <div class="test">
-                        <img src="<?= BASE_URL . $productTopView['img_thumbnail'] ?>" alt="" width="100%">
+                        <img src="<?= BASE_URL . $product['img_thumbnail'] ?>" alt="" width="100%" height="210px">
                     </div>
                     <p><a href="#" onclick="showProduct()">Quick View</a></p>
                     <div class="name-item-image-product">
                         <div class="price-name-item-image-product">
-                            <p><?= $productTopView['name'] ?></p>
-                            <p><?= $productTopView['gia_ban'] ?></p>
+                            <p><?= $product['name'] ?></p>
+                            <p><?= $product['gia_ban']?>USD</p>
+                            <p><a href="<?= BASE_URL . '?act=cart-add&id_sanpham=' . $product['id'] . '&so_luong=1' ?>">Thêm giỏ hàng</a></p>
                         </div>
                         <div class="heart-name-item-image-product">
                             <i id="bxs" onclick="addHeart()" class='bx bxs-heart'></i>

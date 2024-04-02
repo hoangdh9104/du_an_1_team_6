@@ -423,9 +423,9 @@ html{
         border-bottom: 1px dotted gray;
     }
     .Shipping{
-        display: grid;
-        grid-template-columns: 1.5fr 3fr ;
-        column-gap: 20px;
+        /* display: grid; */
+        /* grid-template-columns: 1.5fr 3fr ; */
+        /* column-gap: 20px; */
         border-bottom: 1px dotted gray;
         padding: 0px 0px 10px 0px;
         margin-top: 5px;

@@ -61,7 +61,7 @@
                             <select class="form-control" name="id_danhmuc" id="">
                                 <option value="0" selected="selected" hidden>Chọn tên danh mục</option>
                                 <?php foreach ($dmsp as $key ) : ?>
-                                <option value="<?=$key['id_danhmuc']?>"><?=$key['name']?></option>
+                                <option value="<?=$key['id']?>"><?=$key['name']?></option>
                                 <?php endforeach ; ?>
                             </select>
                         </div>

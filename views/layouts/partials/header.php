@@ -47,7 +47,7 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <div class="icons cart">
-                        <a href="features.html"></a><i class="fa-solid fa-cart-shopping"></i>
+                        <a href="?act=cart-list"><i class="fa-solid fa-cart-shopping"></i></a>
                     </div>
                     <?php
                     if (!isset($_SESSION['user'])) :
@@ -61,18 +61,18 @@
                                 <img class="dropbtn" width="40px" height="40px" src="<?= BASE_URL ?>assets/admin/img/undraw_profile.svg">
                                 <span><?= $_SESSION['user']['name'] ?></span>
                             </div>
-                            <div class="dropdown-content" >
+                            <div class="dropdown-content">
                                 <?php
                                 if ($_SESSION['user']['type'] == 1) :
                                 ?>
-                                <a href="<?= BASE_URL_ADMIN?>">
-                                    Vào trang admin
-                                </a>
+                                    <a href="<?= BASE_URL_ADMIN ?>">
+                                        Vào trang admin
+                                    </a>
                                 <?php endif; ?>
                                 <a class="" href="">
                                     Quản lý tài khoản
                                 </a>
-                                <a class="" href="<?= BASE_URL ?>?act=logout" >
+                                <a class="" href="<?= BASE_URL ?>?act=logout">
                                     Logout
                                 </a>
                             </div>
