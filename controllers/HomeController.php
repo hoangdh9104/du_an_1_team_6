@@ -11,6 +11,7 @@ function homeIndex()
     //  debug($productTopViews);
         if (isset($_GET["search"])) {
             $id_danhmuc = isset($_GET["id_danhmuc"]) ? $_GET["id_danhmuc"] : null;
+            // var_dump("". $id_danhmuc ."");die();    
 
             $sanpham_name = isset($_GET["sanpham_name"]) ? $_GET["sanpham_name"] : null;
 

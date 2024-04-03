@@ -7,7 +7,7 @@ if (!function_exists('getSearchProduct')) {
             $sql = "SELECT * FROM tb_sanpham WHERE 1=1"; // Bắt đầu câu truy vấn với điều kiện luôn đúng
 
             // Thêm điều kiện cho catalogue_id nếu được chỉ định
-            if (!empty($catalogue_id)) {
+            if (!empty($id_danhmuc)) {
                 $sql .= " AND id_danhmuc = :id_danhmuc";
             }
 
@@ -35,6 +35,7 @@ if (!function_exists('getSearchProduct')) {
             if (!empty($id_danhmuc)) {
                 $stmt->bindParam(':id_danhmuc', $id_danhmuc);
             }
+            // var_dump($sql);die();
 
             if (!empty($sanpham_name)) {
                 $stmt->bindParam(':sanpham_name', $sanpham_name);
