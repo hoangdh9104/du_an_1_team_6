@@ -15,13 +15,13 @@ $act = $_GET['act'] ?? '/';
 // Biến này cần khai báo được link cần đăng nhập mới vào được
 $arrRouteNeedAuth = [
     'cart-add',
-    // 'cart-list',
+    'cart-list',
     'cart-inc',
     'cart-dec',
     'cart-del',
     'order-checkout',
     'order-purchase',
-    'order-success'
+    'order-success',
 ]; 
 
 // Kiểm tra xem user đã đăng nhập chưa

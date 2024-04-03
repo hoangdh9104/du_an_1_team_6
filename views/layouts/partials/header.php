@@ -18,7 +18,7 @@
         <div class="sub-nav" id="nav">
             <div class="nav">
                 <div class="photo-logo">
-                    <a href="index.html"><img src="assets/client/src/img/logo.png" style="cursor: pointer;" alt="" /></a>
+                    <a href="?act=/"><img src="assets/client/src/img/logo.png" style="cursor: pointer;" alt="" /></a>
                 </div>
                 <!-- dùng thẻ nav -->
                 <nav>
@@ -26,11 +26,6 @@
                         <ul>
                             <li>
                                 <a href="?act=/" id="home"> Trang chủ
-                                    <ul class="sub-menu">
-                                        <li><a href="">Homepage 1</a></li>
-                                        <li><a href="">Homepage 1</a></li>
-                                        <li><a href="">Homepage 1</a></li>
-                                    </ul>
                                 </a>
                             </li>
                             <li><a href="shop.php">Shop</a></li>
