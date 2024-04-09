@@ -34,9 +34,9 @@
                                 <img src="<?= BASE_URL . $item['img_thumbnail'] ?>" width="50" alt="">
                             </td>
                             <td><?= $item['name'] ?></td>
-                            <td><span><?= number_format($item['gia_khuyenmai'] ?: $item['gia_ban']); ?></span>VND</td>
+                            <td><span><?= number_format($item['gia_khuyenmai'] ?: $item['gia_ban']); ?></span>USD</td>
                             <td>
-                                </ /?=$item['so_luong'] ?>
+
 
                                 <a href="<?= BASE_URL . '?act=cart-dec&id_sanpham=' . $item['id'] ?>"><i class='bx bxs-down-arrow'></i></a>
                                 <input type="text" name="" value="<?= $item['so_luong'] ?>" id="">

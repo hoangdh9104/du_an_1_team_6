@@ -1,3 +1,4 @@
+
 <header>
 
     <div id="header">
@@ -28,10 +29,10 @@
                                 <a href="?act=/" id="home"> Trang chủ
                                 </a>
                             </li>
-                            <li><a href="shop.php">Shop</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="about.html">Giới thiệu</a></li>
-                            <li><a href="contact.html">Liên hệ</a></li>
+                            <li><a href="#">Shop</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Giới thiệu</a></li>
+                            <li><a href="?act=contact">Liên hệ</a></li>
                         </ul>
                     </div>
                 </nav>

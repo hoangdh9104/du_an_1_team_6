@@ -57,9 +57,8 @@ function cartInc($productID)
     if (empty($product)) {
         debug('404 Not Found');
     }
-
     // Tăng số lượng lên 1
-    if (isset($_SESSION['cart'][$productID])) {
+    if (isset($_SESSION['cart'][$productID]) && $_SESSION['cart'][$productID]['so_luong'] < $product['so_luong']) {
         $qtyTMP = $_SESSION['cart'][$productID]['so_luong'] += 1;
 
         updateQuantityByCartIDAndProductID($_SESSION['cartID'], $productID, $qtyTMP);
