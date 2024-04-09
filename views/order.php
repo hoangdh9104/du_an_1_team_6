@@ -84,7 +84,7 @@
 
             <div class="">
                 <div class="text">
-                    <p>Shipping:</p>
+                    <p>Thông tin giao hàng:</p>
                 </div>
 
                 <div class="">
@@ -110,13 +110,12 @@
                 </div>
             </div>
             <div class="total-cart">
-                <p>Total : </p>
-                <p><?= caculator_total_order(); ?> VND</p>
+                <p>Tổng tiền : </p>
+                <p><?= caculator_total_order(); ?></p>
             </div>
-            <a href="<?= BASE_URL . '?act=order-checkout' ?>">
-                <input type="submit" value="PROCEED TO CHECKOUT" name="" id="">
+            <a href="<?= BASE_URL ?>"onclick="return confirm('Bạn muốn thoát khỏi thanh toán ?')" class="btn btn-warning">
+                <input type="submit" value="Quay lại trang chủ" name="" id="">
             </a>
-            <a href="<?= BASE_URL ?>" onclick="return confirm('Bạn muốn thoát khỏi thanh toán')" class="btn btn-warning">Quay lại trang chủ</a>
 
         </div>
     </div>

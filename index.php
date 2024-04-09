@@ -22,6 +22,7 @@ $arrRouteNeedAuth = [
     'order-checkout',
     'order-purchase',
     'order-success',
+    'order-detail-client',
 ]; 
 
 // Kiểm tra xem user đã đăng nhập chưa
@@ -44,6 +45,13 @@ match($act) {
     'order-purchase' => orderPurchase(),
     'order-success' => orderSuccess(),
 
+    // 'order-detail-client' => orderDetail(),
+    'order-detail-client' => historyOrder(),
+    
+    // 'tb_donhang' => tb_donhangListAll(),
+    // 'tb_donhang-detail' => tb_donhangShowOne($_GET['id']),
+    // 'tb_donhang-update' => tb_donhangUpdate($_GET['id']),
+    // 'tb_donhang-delete' => tb_donhangDelete($_GET['id']),
     
 };
 

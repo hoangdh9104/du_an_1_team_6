@@ -23,6 +23,7 @@ function orderPurchase()
                     'id_donhang' => $orderID,
                     // 'soluong_sanpham' => $item['soluong_sanpham'],
                     // 'thanh_tien' => ($item['gia_khuyenmai'] ?: $item['gia_ban']) * $item['soluong_sanpham'],
+                    // 'ngay_mua' => date("Y-m-d"),
                     'id_sanpham' => $productID,
                     'don_gia' => $item['gia_khuyenmai'] ?: $item['gia_ban'],
                 ];
@@ -52,4 +53,31 @@ function orderPurchase()
 function orderSuccess()
 {
     require_once PATH_VIEW . 'order-success.php';
+}
+function updateStatus(){
+    $t = date("Y-m-d");
+    $coupons = listAll('tb_khuyenmai');
+    foreach ($coupons as $cou) {
+        // var_dump($cou['thoigian_bd']);
+
+        if ($cou['thoigian_bd'] <= $t && $cou['thoigian_kt'] >= $t) {
+            update('tb_khuyenmai', $cou['id'], ['trang_thai' => 1]);
+        } else {
+            update('tb_khuyenmai', $cou['id'], ['trang_thai' => 0]);
+        }
+
+        // if ($cou['thoigian_kt'] <= $t && $cou['trang_thai'] == 1 ) {
+        //     # update trạng thái là 0
+        //     update('tb_khuyenmai', $cou['id'], ['trang_thai' => 0]);
+        // } 
+        // else {
+        //     update('tb_khuyenmai', $cou['id'], ['trang_thai' => 1]);     
+        // }
+    }
+    // $data = ['1'];
+    // $ids = showOne('tb_khuyenmai', $id);
+
+    // if(date("Y-m-d",$t) ==  $_POST['thoigian_bd']){
+    //     update('tb_khuyenmai', $ids, $data);
+    // }
 }
