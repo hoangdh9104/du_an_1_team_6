@@ -20,6 +20,7 @@ $arrRouteNeedAuth = [
     'order-checkout',
     'order-purchase',
     'order-success',
+    'order-detail-client',
 ]; 
 // Kiểm tra xem user đã đăng nhập chưa
 middleware_auth_check($act,$arrRouteNeedAuth);
@@ -42,8 +43,10 @@ match($act) {
     'order-checkout' => orderCheckOut(),
     'order-purchase' => orderPurchase(),
     'order-success' => orderSuccess(),
+    'order-detail-client' => historyOrder(),
     //product-detail
     'product-detail' => showOneProduct($_GET['id']),
+
 };
 
 require_once './commons/disconnect-db.php';

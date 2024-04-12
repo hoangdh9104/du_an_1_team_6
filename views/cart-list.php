@@ -76,8 +76,8 @@
 
 
             <div class="Subtotal">
-                <p>Subtotal:</p>
-                <p><span>$</span>79.65</p>
+                <p>Giảm giá:</p>
+                <p><span>$</span></p>
             </div>
 
 
@@ -112,11 +112,11 @@
                 </div>
             </div>
             <div class="total-cart">
-                <p>Total</p>
-                <p><span>$</span>79.65</p>
+                <p>Tổng tiền</p>
+                <p><span>$</span> <?= caculator_total_order(); ?></p>
             </div>
             <a href="<?= BASE_URL . '?act=order-checkout' ?>">
-                <input type="submit" value="PROCEED TO CHECKOUT" name="" id="">
+                <input type="submit" value="Đi đến thanh toán" name="" id="">
             </a>
 
         </div>

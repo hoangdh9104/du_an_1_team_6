@@ -84,7 +84,7 @@
 
             <div class="">
                 <div class="text">
-                    <p>Shipping:</p>
+                    <p>Thông tin giao hàng:</p>
                 </div>
 
                 <div class="">
@@ -103,20 +103,19 @@
                         <input type="email" id="email" name="email" value="<?= $_SESSION['user']['email'] ?>" required placeholder="Email">
                         <input type="tel" id="sdt" name="sdt" required placeholder="Số điện thoại">
                         <input type="text" id="diachi_muahang" name="diachi_muahang" required placeholder="Địa chỉ">
-                        <input type="submit" name="" value="Thanh toán" id="">
+                        <input type="submit" name="" value="Thanh toán" id="" onclick="alert('Đặt hàng thành công')">
 
                     </form>
 
                 </div>
             </div>
             <div class="total-cart">
-                <p>Total : </p>
-                <p><?= caculator_total_order(); ?> VND</p>
+                <p>Tổng tiền : </p>
+                <p><?= caculator_total_order(); ?></p>
             </div>
-            <a href="<?= BASE_URL . '?act=order-checkout' ?>">
-                <input type="submit" value="PROCEED TO CHECKOUT" name="" id="">
+            <a href="<?= BASE_URL ?>"onclick="return confirm('Bạn muốn thoát khỏi thanh toán ?')" class="btn btn-warning">
+                <input type="submit" value="Quay lại trang chủ" name="" id="">
             </a>
-            <a href="<?= BASE_URL ?>" onclick="return confirm('Bạn muốn thoát khỏi thanh toán')" class="btn btn-warning">Quay lại trang chủ</a>
 
         </div>
     </div>

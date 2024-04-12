@@ -1,6 +1,5 @@
 
 <header>
-
     <div id="header">
 
         <div class="header-top">
@@ -67,6 +66,9 @@
                                 <?php endif; ?>
                                 <a class="" href="">
                                     Quản lý tài khoản
+                                </a>
+                                <a class="" href="?act=order-detail-client">
+                                    Quản lý đơn hàng
                                 </a>
                                 <a class="" href="<?= BASE_URL ?>?act=logout">
                                     Logout
