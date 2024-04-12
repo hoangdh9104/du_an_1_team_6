@@ -46,6 +46,7 @@ match($act) {
     'order-detail-client' => historyOrder(),
     //product-detail
     'product-detail' => showOneProduct($_GET['id']),
+    'thanks' => showThanks(),
 
 };
 

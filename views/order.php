@@ -1,4 +1,14 @@
-
+<style>
+    .text-shipping select,
+    input[type="radio"][name="pttt"] {
+        width: 20px;
+        margin: 5px 0px;
+        padding: 5px;
+        font-size: 10px;
+        border: 1px solid #555;
+        border-radius: 10px;
+    }
+</style>
 
 <div id="main">
 
@@ -56,7 +66,7 @@
                 <tr>
 
                     <td id="total_table" colspan="4">Tổng tiền</td>
-                    <td id="price_total"><?= caculator_total_order(); ?></td>
+                    <td id="price_total">$<?= caculator_total_order(); ?></td>
                 </tr>
                 <tr>
                     <td colspan="5" id="update">
@@ -92,28 +102,41 @@
                     <!-- <p> There are no shipping methods available. Please double check your address, or contact us
                         if you need any help.</p>
                     <p>CALCULATE SHIPPING</p> -->
-                    <form action="<?= BASE_URL . '?act=order-purchase'?>" onsubmit="return validateCart()" method="POST">
-                        <!-- <select name="" id="option">
-                            <option value="0">select a country</option>
-                            <option value="1">Thai Binh</option>
-                            <option value="2">Ha Noi</option>
-                            <option value="3">Quang Lich</option>
-                        </select> -->
+                    <form action="<?= BASE_URL . '?act=order-purchase' ?>" onsubmit="return validateCart()" method="POST">
                         <input type="text" id="ten_khachhang" name="ten_khachhang" value="<?= $_SESSION['user']['name'] ?>" required placeholder="Tên khách hàng">
                         <input type="email" id="email" name="email" value="<?= $_SESSION['user']['email'] ?>" required placeholder="Email">
                         <input type="tel" id="sdt" name="sdt" required placeholder="Số điện thoại">
                         <input type="text" id="diachi_muahang" name="diachi_muahang" required placeholder="Địa chỉ">
-                        <input type="submit" name="" value="Thanh toán" id="" onclick="alert('Đặt hàng thành công')">
-
+                        <!-- <div class="d-flex flex-column bd-highlight mb-3">
+                            <h4>Thanh Toán</h4>
+                            <div>
+                                <input type="radio" name="pttt" value="1" id="">
+                                <span>Trả tiền khi nhận hàng</span>
+                            </div>
+                            <div>
+                                <input type="radio" name="pttt" value="0" id="">
+                                <span>Thanh toán online</span>
+                            </div>
+                        </div> -->
+                        
+                        <input type="submit" name="" value="Thanh toán khi nhận hàng" id="">
                     </form>
-
+                    <?php
+                        $tongtien_vnd = caculator_total_order() * 250;
+                        ?>
+                        <form class="" method="POST"  onsubmit="return validateCart()" target="_blank" enctype="application/x-www-form-urlencoded" action="<?= BASE_URL ?>controllers/xulythanhtoanMOMO_ATMController.php">
+                            <input type="hidden"  value="<?php echo $tongtien_vnd ?>" name="tongtien_vnd">
+                            <input type="tel" required placeholder="Số điện thoại" name="sdt">
+                            <input type="text" required placeholder="Địa chỉ" name="diachi_muahang">
+                            <input type="submit"  name="momo" class="btn-btn-danger" value="Thanh toán MOMO ATM" id="">
+                        </form>
                 </div>
             </div>
             <div class="total-cart">
                 <p>Tổng tiền : </p>
-                <p><?= caculator_total_order(); ?></p>
+                <p>$<?= caculator_total_order(); ?></p>
             </div>
-            <a href="<?= BASE_URL ?>"onclick="return confirm('Bạn muốn thoát khỏi thanh toán ?')" class="btn btn-warning">
+            <a href="<?= BASE_URL ?>" onclick="return confirm('Bạn muốn thoát khỏi thanh toán ?')" class="btn btn-warning">
                 <input type="submit" value="Quay lại trang chủ" name="" id="">
             </a>
 

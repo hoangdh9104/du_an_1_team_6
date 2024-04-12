@@ -4,6 +4,10 @@ function orderCheckOut()
     $views = 'order';
     require_once PATH_VIEW . 'layouts/master.php';
 }
+function showThanks() {
+    $views = 'thanks';
+    require_once PATH_VIEW . 'layouts/master.php';
+}
 function orderPurchase()
 {
     if (!empty($_POST) && !empty($_SESSION['cart'])) {
@@ -14,8 +18,9 @@ function orderPurchase()
             $data['id_khachhang'] = $_SESSION['user']['id'];
             $data['tong_tien'] = caculator_total_order(false);
             $data['trang_thai'] = STATUS_DELIVERY_WFC;
-            $data['phuongthuc_thanhtoan'] = STATUS_PAYMENT_UNPAID;
-
+            $data['phuongthuc_thanhtoan'] = 1;
+            // $data['phuongthuc_thanhtoan'] = $_POST['pttt'];
+            // debug($data);
             $orderID = insert_get_last_id('tb_donhang', $data);
             foreach ($_SESSION['cart'] as $productID => $item) {
                 // $total +=
