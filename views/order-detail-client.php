@@ -46,8 +46,8 @@
                                 echo '<span class="btn btn-outline-danger">Đã hủy</span>';
                             } ?></td>
                         <td>
-                            <a href="<?= BASE_URL_ADMIN ?>?act=tb_donhang-detail&id=<?= $order['id']; ?>" class="btn btn-info">Chi tiết</a>
-                            <a href="<?= BASE_URL_ADMIN ?>?act=tb_donhang-update&id=<?= $order['id']; ?>" class="btn btn-warning">Sửa</a>
+                            <a href="<?= BASE_URL ?>?act=order-showOne&id=<?= $order['id']; ?>" class="btn btn-info">Chi tiết</a>
+                            <a href="<?= BASE_URL ?>?act=order-update&id=<?= $order['id']; ?>" class="btn btn-warning">Sửa</a>
                         </td>
                     </tr>
                 <?php

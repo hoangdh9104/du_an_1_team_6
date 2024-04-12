@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 // Require file trong commons
 require_once './commons/env.php';
@@ -23,11 +23,13 @@ $arrRouteNeedAuth = [
     'order-purchase',
     'order-success',
     'order-detail-client',
-]; 
+    'order-showOne',
+    'order-update',
+];
 
 // Kiểm tra xem user đã đăng nhập chưa
-middleware_auth_check($act,$arrRouteNeedAuth);
-match($act) {
+middleware_auth_check($act, $arrRouteNeedAuth);
+match ($act) {
     '/' => homeIndex(),
     // Authen
     'login' => authenShowFormLogin(),
@@ -47,12 +49,14 @@ match($act) {
 
     // 'order-detail-client' => orderDetail(),
     'order-detail-client' => historyOrder(),
-    
+    'order-showOne' => tb_donhangShowOneClient($_GET['id']),
+    'order-update' => tb_donhangUpdateClient($_GET['id']),
+
     // 'tb_donhang' => tb_donhangListAll(),
     // 'tb_donhang-detail' => tb_donhangShowOne($_GET['id']),
     // 'tb_donhang-update' => tb_donhangUpdate($_GET['id']),
     // 'tb_donhang-delete' => tb_donhangDelete($_GET['id']),
-    
+
 };
 
 require_once './commons/disconnect-db.php';

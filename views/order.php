@@ -103,7 +103,7 @@
                         <input type="email" id="email" name="email" value="<?= $_SESSION['user']['email'] ?>" required placeholder="Email">
                         <input type="tel" id="sdt" name="sdt" required placeholder="Số điện thoại">
                         <input type="text" id="diachi_muahang" name="diachi_muahang" required placeholder="Địa chỉ">
-                        <input type="submit" name="" value="Thanh toán" id="">
+                        <input type="submit" name="" value="Thanh toán" id="" onclick="alert('Đặt hàng thành công')">
 
                     </form>
 

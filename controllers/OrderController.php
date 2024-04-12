@@ -21,7 +21,7 @@ function orderPurchase()
                 // $total +=
                 $orderItem = [
                     'id_donhang' => $orderID,
-                    // 'soluong_sanpham' => $item['soluong_sanpham'],
+                    // 'soluong_sanpham' => countOrder(),
                     // 'thanh_tien' => ($item['gia_khuyenmai'] ?: $item['gia_ban']) * $item['soluong_sanpham'],
                     // 'ngay_mua' => date("Y-m-d"),
                     'id_sanpham' => $productID,
@@ -41,8 +41,9 @@ function orderPurchase()
         } catch (\Exception $e) {
             debug($e);
         }
-
-        header('Location: ' . BASE_URL . '?act=order-success');
+        
+        header('Location: ' . BASE_URL);
+        // header('Location: ' . BASE_URL . '?act=order-success');
         exit();
     }
     // Chuyển hướng qua trang list cart
