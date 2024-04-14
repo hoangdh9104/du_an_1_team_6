@@ -21,6 +21,8 @@ $arrRouteNeedAuth = [
     'order-purchase',
     'order-success',
     'order-detail-client',
+    'order-showOne',
+    'order-update',
 ]; 
 // Kiểm tra xem user đã đăng nhập chưa
 middleware_auth_check($act,$arrRouteNeedAuth);
@@ -44,10 +46,12 @@ match($act) {
     'order-purchase' => orderPurchase(),
     'order-success' => orderSuccess(),
     'order-detail-client' => historyOrder(),
+    'order-showOne' => tb_donhangShowOneClient($_GET['id']),
+    'order-update' => tb_donhangUpdateClient($_GET['id']),
     //product-detail
     'product-detail' => showOneProduct($_GET['id']),
     'thanks' => showThanks(),
-
+    //review
 };
 
 require_once './commons/disconnect-db.php';

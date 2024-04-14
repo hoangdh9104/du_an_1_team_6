@@ -9,7 +9,7 @@
 
     <div class="mt-10" style="margin-top: 30px;">
 
-        <div class="table-cart" data-aos="zoom-out-right" >
+        <div class="table-cart" data-aos="zoom-out-right">
             <table>
                 <tr>
                     <th>ID</th>
@@ -21,40 +21,40 @@
                 </tr>
                 <?php
                 if (isset($_SESSION['user'])) :
-                foreach ($orders as $order) :
+                    foreach ($orders as $order) :
                 ?>
-                    <tr>
-                        <td><?= $order['id']; ?></td>
-                        <td><?= $order['ten_khachhang']; ?></td>
-                        <td><?= $order['sdt']; ?></td>
-                        <td><?= $order['ngay_mua']; ?></td>
-                        <td><?php if ($order['trang_thai'] == 0) {
-                                echo '<span class="btn btn-outline-warning">Chưa xử lí</span>';
-                            }
-                            if ($order['trang_thai'] == 1) {
-                                echo '<span class="btn btn-outline-info">Đã xử lí</span>';
-                            }
-                            if ($order['trang_thai'] == 2) {
-                                echo '<span class="btn btn-outline-primary">Đã tiếp nhận</span>';
-                            }
-                            if ($order['trang_thai'] == 3) {
-                                echo '<span class="btn btn-outline-secondary">Đang giao hàng</span>';
-                            }
-                            if ($order['trang_thai'] == 4) {
-                                echo '<span class="btn btn-outline-success">Đã giao hàng</span>';
-                            }
-                            if ($order['trang_thai'] == 5) {
-                                echo '<span class="btn btn-outline-danger">Đã hủy</span>';
-                            } ?></td>
-                        <td>
-                            <a href="<?= BASE_URL_ADMIN ?>?act=tb_donhang-detail&id=<?= $order['id']; ?>" class="btn btn-info">Chi tiết</a>
-                            <a href="<?= BASE_URL_ADMIN ?>?act=tb_donhang-update&id=<?= $order['id']; ?>" class="btn btn-warning">Sửa</a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><?= $order['id']; ?></td>
+                            <td><?= $order['ten_khachhang']; ?></td>
+                            <td><?= $order['sdt']; ?></td>
+                            <td><?= $order['ngay_mua']; ?></td>
+                            <td><?php if ($order['trang_thai'] == 0) {
+                                    echo '<span class="btn btn-outline-warning">Chưa xử lí</span>';
+                                }
+                                if ($order['trang_thai'] == 1) {
+                                    echo '<span class="btn btn-outline-info">Đã xử lí</span>';
+                                }
+                                if ($order['trang_thai'] == 2) {
+                                    echo '<span class="btn btn-outline-primary">Đã tiếp nhận</span>';
+                                }
+                                if ($order['trang_thai'] == 3) {
+                                    echo '<span class="btn btn-outline-secondary">Đang giao hàng</span>';
+                                }
+                                if ($order['trang_thai'] == 4) {
+                                    echo '<span class="btn btn-outline-success">Đã giao hàng</span>';
+                                }
+                                if ($order['trang_thai'] == 5) {
+                                    echo '<span class="btn btn-outline-danger">Đã hủy</span>';
+                                } ?></td>
+                            <td>
+                                <a href="<?= BASE_URL ?>?act=order-showOne&id=<?= $order['id']; ?>" class="btn btn-info">Chi tiết</a>
+                                <a href="<?= BASE_URL ?>?act=order-update&id=<?= $order['id']; ?>" class="btn btn-warning">Sửa</a>
+                            </td>
+                        </tr>
                 <?php
-                endforeach;
-            endif;
-          
+                    endforeach;
+                endif;
+
                 ?>
             </table>
         </div>

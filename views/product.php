@@ -12,6 +12,66 @@
         font-size: 16px;
         line-height: 1.6;
     }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .form-container {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .rating input[type="radio"] {
+        display: none;
+    }
+
+    .rating label {
+        cursor: pointer;
+        font-size: 25px;
+        float: right;
+    }
+
+    .rating label:before {
+        content: "\2605";
+    }
+
+    .rating input[type="radio"]:checked~label:before {
+        color: orange;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
 </style>
 <?php
 ?>
@@ -71,75 +131,15 @@
         <br>
         <h3 class="text-warning">Mô tả : </h3>
         <hr>
-        <div class="product-description" >
+        <div class="product-description">
             <?php
-             echo "<pre>";
-             echo $product['mo_ta']; 
-             echo "<pre>";
-             ?>
+            echo "<pre>";
+            echo $product['mo_ta'];
+            echo "<pre>";
+            ?>
         </div>
     </div>
     <br>
-
-    <div class="container mt-4">    
-        <!-- List feedback -->
-        <h3 class="text-warning">KHÁCH HÀNG BÌNH LUẬN : </h3>
-        <?php
-        $idKeys = [];
-        $x = getData_tb_binhluan($product['id']);
-        ?>
-        <?php if (!empty($x)) : ?>
-            <?php foreach ($x as $key) {
-                foreach ($key as $item) {
-                    $idKeys[] = $item;
-                }
-            }
-            $ket_qua = layBanGhiTheoIDTrung($idKeys, 'tb_binhluan');
-            ?>
-            <hr>
-            <div class="listBinhLuan">
-                <?php foreach ($ket_qua as $feedback) : ?>
-                    <div>
-                        <div class="d-flex align-items-center">
-                            <span class="fs-4 mx-2">Tên tác giả : <b><?= $feedback['ten_khachhang'] ?></b>. </span>
-                            <span class="ms-auto">Ngày bình luận: <b><?= $feedback['thoi_gian'] ?></b> </span>
-                        </div>
-                        <div class="alert alert-info fs-5 ms-5" role="alert">
-                            <?= $feedback['noi_dung'] ?>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
-        <hr>
-        <?php
-        // Thông báo lỗi
-        if (isset($_SESSION['errors'])) :
-        ?>
-            <div class="alert alert-danger">
-                <ul>
-                    <?php
-                    foreach ($_SESSION['errors'] as $error) :
-                    ?>
-                        <li><?= $error ?></li>
-                    <?php
-                    endforeach;
-                    ?>
-                </ul>
-            </div>
-            <?php unset($_SESSION['errors']); ?>
-        <?php
-        endif;
-        ?>
-        <form method="post" class='form' action="">
-            <input value="<?= isset($_SESSION['data']) ? $_SESSION['data']['ten_khachhang'] : null; ?>" class="text" style="width: 300px; margin-bottom: 10px" type="text" name="ten_tacgia" placeholder=" Nhập tên của bạn">
-            <textarea class="text" cols="100" rows="5" name="feedback_content" placeholder=" Nhập nội dung bình luận"><?= isset($_SESSION['data']) ? $_SESSION['data']['noi_dung'] : null; ?></textarea>
-            <br>
-            <input type="hidden" name="id_sanpham" value="<?= $product['id'] ?>">
-            <input type="hidden" name="ngay_binh_luan" value="<?= date("Y-m-d H:i:s", $thoi_gian_hien_tai) ?>">
-            <button type="submit" class="btn btn-primary" name="feedback_submit">Gửi bình luận</button>
-        </form>
-    </div>
     <div class="container mt-4">
         <br>
         <h3 class="text-warning">ĐÁNH GIÁ SẢN PHẨM</h3>
@@ -161,55 +161,108 @@
                     <div>
                         <div class="d-flex flex-column mb-3">
                             <span class="">Tên khách hàng : <b><?= $feedback['name'] ?></b>. </span>
-                            <span class="ms-auto">Điểm đánh giá: 
+                            <span class="ms-auto">Điểm đánh giá:
                                 <b>
-                                <?php
-                                switch ($feedback['diem_danhgia']) {
-                                    case '1':
-                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                        break;
-                                    case '2':
-                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                        break;
-                                    case '3':
-                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                        break;
-                                    case '4':
-                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                        break;
-                                    case '5':
-                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                        echo '<i class="fas fa-fw fa-star text-warning"></i>';
-                                        echo '<i class="fas fa-fw fa-star text-warning  "></i>';
-                                        break;
-                                    default:
-                                        echo null;
-                                        break;
-                                }
-                                ?>
+                                    <?php
+                                    switch ($feedback['diem_danhgia']) {
+                                        case '1':
+                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                            break;
+                                        case '2':
+                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                            break;
+                                        case '3':
+                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                            break;
+                                        case '4':
+                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                            break;
+                                        case '5':
+                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                            echo '<i class="fas fa-fw fa-star text-warning"></i>';
+                                            echo '<i class="fas fa-fw fa-star text-warning  "></i>';
+                                            break;
+                                        default:
+                                            echo null;
+                                            break;
+                                    }
+                                    ?>
 
-                                </b> 
+                                </b>
                             </span>
                             <span class="ms-auto">Ngày đánh giá: <b><?= $feedback['thoi_gian'] ?></b> </span>
                             <br>
                             <div class="alert alert-info fs-5 ms-5" role="alert">
-                             <?= $feedback['noi_dung'] ?>
+                                <?= $feedback['noi_dung'] ?>
                             </div>
                         </div>
-                        
+
                     </div>
-                    <hr>        
+                    <hr>
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>
-        <span></span>
+        <?php if (isset($_GET['conditions']) && $_GET['conditions'] == 0) : ?>
+            <?php
+            // Thông báo lỗi
+            if (isset($_SESSION['errors'])) :
+            ?>
+                <div class="alert alert-danger">
+                    <ul>
+                        <?php
+                        foreach ($_SESSION['errors'] as $error) :
+                        ?>
+                            <li><?= $error ?></li>
+                        <?php
+                        endforeach;
+                        ?>
+                    </ul>
+                </div>
+                <?php unset($_SESSION['errors']); ?>
+            <?php
+            endif;
+            ?>
+            <div class="form-container">
+                <form class='form' method="post" action="">
+                    <div class="form-group">
+                        <label for="productName">Tên Sản Phẩm:</label>
+                        <input type="text" readonly id="productName" value="<?= $product['name'] ?>" name="productName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Tên của bạn:</label>
+                        <input type="text" readonly id="name" value="<?= $_SESSION['user']['name'] ?>" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email của bạn:</label>
+                        <input type="text" readonly id="email" value="<?= $_SESSION['user']['email'] ?>" name="email" required>
+                    </div>
+                    <input type="hidden" name="id_sanpham" value="<?= $product['id'] ?>">
+                    <input type="hidden" name="id_khachhang" value="<?= $_SESSION['user']['id'] ?>">
+                    <input type="hidden" name="thoi_gian" value="<?= date("Y-m-d H:i:s", $thoi_gian_hien_tai) ?>">
+                    <div class="form-group rating">
+                        <input type="radio" id="quality5" name="quality" value="5"><label for="quality5"></label>
+                        <input type="radio" id="quality4" name="quality" value="4"><label for="quality4"></label>
+                        <input type="radio" id="quality3" name="quality" value="3"><label for="quality3"></label>
+                        <input type="radio" id="quality2" name="quality" value="2"><label for="quality2"></label>
+                        <input type="radio" id="quality1" name="quality" value="1"><label for="quality1"></label>
+                        <span>Chất lượng sản phẩm</span>
+                    </div>
+                    <!-- Thêm các form-group khác tương tự cho các mục khác -->
+                    <div class="form-group">
+                        <label for="comment">Nhận Xét Thêm:</label>
+                        <textarea id="comment" name="comment" rows="4"><?= isset($_SESSION['data']) ? $_SESSION['data']['noi_dung'] : null; ?></textarea>
+                    </div>
+                    <button name="submit" type="submit">Gửi Đánh Giá</button>
+                </form>
+            </div>
+        <?php endif ?>
     </div>
 
 </div>

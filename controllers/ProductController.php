@@ -11,20 +11,23 @@ function showOneProduct($idProduct)
     $title = 'Chi tiết sản phẩm: ' . $product['name'];
     if (!empty($_POST)) {
         $data = [
-            "ten_khachhang" => $_POST['ten_tacgia'] ?? null,
-            "noi_dung" => $_POST["feedback_content"] ?? null,
-            "thoi_gian" => $_POST["ngay_binh_luan"] ?? null,
+            "diem_danhgia" => $_POST['quality'] ?? null,
+            "noi_dung" => $_POST["comment"] ?? null,
+            "thoi_gian" => $_POST["thoi_gian"] ?? null,
             "id_sanpham" => $_POST["id_sanpham"] ?? null,
+            "id_khachhang" => $_POST["id_khachhang"] ?? null,
         ];
         $errors = validateCommentCreate($data);
         // debug($data);
         if (!empty($errors)) {
             $_SESSION['errors'] = $errors;
             $_SESSION['data'] = $data;
-            header('Location: ' . BASE_URL . '?act=product-detail&id='.$idProduct);
+            header('Location: ' . BASE_URL . '?act=product-detail&id='.$idProduct.'&conditions=0');
             exit();
         }
-        insert('tb_binhluan', $data);
+        unset($_SESSION['errors']);
+        unset($_SESSION['data']);
+        insert('tb_danhgia', $data);
         // $_SESSION['success'] = 'Bình luận thành công thành công!';
         header('Location: ' . BASE_URL . '?act=product-detail&id='.$idProduct);
     }
@@ -33,10 +36,8 @@ function showOneProduct($idProduct)
 function validateCommentCreate($data)
 {
     $errors = [];
-    if (empty($data['ten_khachhang'])) {
-        $errors[] = 'Vui lòng nhập tên người bình luận';
-    } else if (strlen($data['ten_khachhang']) > 50) {
-        $errors[] = 'Tên tối đa 50 kí tự';
+    if (empty($data['diem_danhgia'])) {
+        $errors[] = 'Vui lòng đánh giá số điểm của sản phẩm';
     }
     if (empty($data['noi_dung'])) {
         $errors[] = 'Vui lòng nhập nội dung bình luận';

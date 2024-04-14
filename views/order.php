@@ -122,9 +122,9 @@
                         <input type="submit" name="" value="Thanh toán khi nhận hàng" id="">
                     </form>
                     <?php
-                        $tongtien_vnd = caculator_total_order() * 250;
+                        $tongtien_vnd = caculator_total_order() * 25000.5;
                         ?>
-                        <form class="" method="POST"  onsubmit="return validateCart()" target="_blank" enctype="application/x-www-form-urlencoded" action="<?= BASE_URL ?>controllers/xulythanhtoanMOMO_ATMController.php">
+                        <form action="<?= BASE_URL . '?act=thanks' ?>"  class="" method="POST"  onsubmit="return validateCart()" target="_blank" enctype="application/x-www-form-urlencoded" action="<?= BASE_URL ?>controllers/xulythanhtoanMOMO_ATMController.php">
                             <input type="hidden"  value="<?php echo $tongtien_vnd ?>" name="tongtien_vnd">
                             <input type="tel" required placeholder="Số điện thoại" name="sdt">
                             <input type="text" required placeholder="Địa chỉ" name="diachi_muahang">

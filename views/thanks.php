@@ -17,7 +17,7 @@ if (isset($_GET['partnerCode'])) {
     $data['pay_Type'] = $payType;
     insert('tb_momo', $data);
 }
-var_dump($_SESSION['cart']);
+// var_dump($_SESSION['cart']);
 if (!empty($_SESSION['cart'])) {
     // Xử lí lưu vào bảng đơn hàng và chi tiết đơn hàng
     try {
@@ -57,8 +57,8 @@ if (!empty($_SESSION['cart'])) {
         debug($e);
     }
 
-    // header('Location: ' . BASE_URL);
-    // exit();
+    header('Location: ' . BASE_URL);
+    exit();
 }
 function splitByQuotes($inputString) {
     // Sử dụng preg_split với biểu thức chính quy để tách chuỗi khi gặp dấu '' hoặc ""
