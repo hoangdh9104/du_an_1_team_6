@@ -2,7 +2,7 @@
     <div class="text_cart">
         <p>HOME</p>
         <i class='bx bx-chevron-right'></i>
-        <p>Shoping Cart</p>
+        <p>Lịch sử mua hàng</p>
     </div>
     <div class="style"></div>
 

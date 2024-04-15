@@ -73,9 +73,17 @@
                                         echo '<span class="badge badge-danger">Đã hủy</span>';
                                     } ?></td>
                                 <td>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=tb_donhang-detail&id=<?= $order['id']; ?>" class="btn btn-info">Chi tiết</a>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=tb_donhang-update&id=<?= $order['id']; ?>" class="btn btn-warning">Sửa</a>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=tb_donhang-delete&id=<?= $order['id']; ?>" class="btn btn-danger" onclick="return confirm('Bạn muốn xóa không ?')">Xóa</a>
+                                <?php
+if ($order['trang_thai'] == 5) {
+    echo '<a href="' . BASE_URL_ADMIN . '?act=tb_donhang-detail&id=' . $order['id'] . '" class="btn btn-info">Chi tiết</a>
+          <a href="' . BASE_URL_ADMIN . '?act=tb_donhang-update&id=' . $order['id'] . '" class="btn btn-warning">Sửa</a>
+          <a href="' . BASE_URL_ADMIN . '?act=tb_donhang-delete&id=' . $order['id'] . '" class="btn btn-danger" onclick="return confirm(\'Bạn muốn xóa không ?\')">Xóa</a>';
+} else {
+    echo '<a href="' . BASE_URL_ADMIN . '?act=tb_donhang-detail&id=' . $order['id'] . '" class="btn btn-info">Chi tiết</a>
+          <a href="' . BASE_URL_ADMIN . '?act=tb_donhang-update&id=' . $order['id'] . '" class="btn btn-warning">Sửa</a>';
+}
+?>
+                                    
                                 </td>
                             </tr>
                         <?php

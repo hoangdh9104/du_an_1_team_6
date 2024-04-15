@@ -1,5 +1,3 @@
-
-
 <div id="main">
 
 
@@ -59,11 +57,15 @@
                     <td id="price_total"><?= caculator_total_order(); ?></td>
                 </tr>
                 <tr>
-                    <td colspan="5" id="update">
-                        <input type="text" placeholder="Coupon Code">
-                        <input type="submit" value="APPLY COUPON">
-                        <input type="submit" value="UPDATE CART">
-                    </td>
+                    <form action="" method="post" >
+                        <td colspan="5" id="update">
+                            <?php if (isset($errorMessage)) : ?>
+                                <p class="error"><?php echo $errorMessage; ?></p>
+                            <?php endif; ?>
+                            <input type="text" placeholder="Coupon Code" name="coupon_code">
+                            <input type="submit" value="APPLY COUPON" name="coupon">
+                        </td>
+                    </form>
                 </tr>
             </table>
         </div>
@@ -99,11 +101,11 @@
                             <option value="3">Quang Lich</option>
                         </select> -->
                         <?php
-                        foreach ($coupon as $item) : 
-                        if($item['trang_thai'] == 1) :?>
-                            <input type="text" id="coupon" name="ma_khuyenmai" value="<?= $item['ma_khuyenmai']?>" disabled>
+                        foreach ($couponn as $item) :
+                            if ($item['trang_thai'] == 1) : ?>
+                                <input type="text" id="coupon" name="ma_khuyenmai" value="<?= $item['ma_khuyenmai'] ?>" disabled>
                         <?php
-                        endif;
+                            endif;
                         endforeach;
                         ?>
 

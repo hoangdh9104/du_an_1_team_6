@@ -42,8 +42,11 @@ function cartList()
     $style = 'cart';
 
     $coupons = listAll('tb_chi_tiet_giohang');
-    $coupon = showCoupon();
+    $couponn = showCoupon();
+    // $couponnn = useCoupon();
+
     // require_once PATH_VIEW . 'layouts/master.php';
+
 
     // debug($_SESSION['cart']);
     require_once PATH_VIEW . 'layouts/master.php';
@@ -106,5 +109,26 @@ function cartDel($productID)
     }
     // Chuyển hướng qua trang list cart
 
+    header('Location: ' . BASE_URL . '?act=cart-list');
+}
+
+function useCoupon()
+{
+    if (isset($_POST['coupon_code'])) {
+        $couponCode = $_POST['coupon_code'];
+        $couponn = showCoupon();
+        // debug($idCoupon);
+        foreach ($couponn as $coupon) {
+            if ($couponCode === $coupon['ma_khuyenmai']) {
+                $discount = $couponn['gia_tri'];
+
+                header('Location: ' . BASE_URL . '?act=cart-list');
+                exit();
+            }
+        }
+        $errorMessage = ' Nhập sai mã giảm giá';
+    } else {
+        $errorMessage = 'Bạn chưa nhập mã giảm giá';
+    }
     header('Location: ' . BASE_URL . '?act=cart-list');
 }

@@ -40,8 +40,8 @@
             <?php
             endif;
             ?>
-            <?php 
-            $dmsp = listAllDanhMuc() ;
+            <?php
+            $dmsp = listAllDanhMuc();
             // var_dump($currentTimestamp)
             // debug($currentTimestamp);
             ?>
@@ -60,9 +60,9 @@
                             <label for="name" class="form-label">Danh mục sản phẩm:</label>
                             <select class="form-control" name="id_danhmuc" id="">
                                 <option value="0" selected="selected" hidden>Chọn tên danh mục</option>
-                                <?php foreach ($dmsp as $key ) : ?>
-                                <option value="<?=$key['id']?>"><?=$key['name']?></option>
-                                <?php endforeach ; ?>
+                                <?php foreach ($dmsp as $key) : ?>
+                                    <option value="<?= $key['id'] ?>"><?= $key['name'] ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
@@ -94,13 +94,14 @@
                 <div class="col-md-6">
                     <div class="mb-3 mt-3">
                         <label for="gia_khuyenmai" class="form-label">Mô tả:</label>
-                        <input type="text" class="form-control" name="mo_ta" id="" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['mo_ta'] : null; ?>">
+                        <!-- <input type="text" name="" id="" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['mo_ta'] : null; ?>"> -->
+                        <textarea type="text" name="mo_ta" id="" cols="30" rows="10" class="form-control" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['mo_ta'] : null; ?>"></textarea>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3 mt-3">
-                    <label for="pass" class="form-label">Ngày tạo:</label>
-                            <input type="date" class="form-control" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['ngay_tao'] : null; ?>" id="ngay_tao" value="" placeholder="Enter time" name="ngay_tao" >
+                        <label for="pass" class="form-label">Ngày tạo:</label>
+                        <input type="date" class="form-control" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['ngay_tao'] : null; ?>" id="ngay_tao" value="" placeholder="Enter time" name="ngay_tao">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>

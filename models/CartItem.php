@@ -52,37 +52,21 @@ function deleteCartItemByCartID($cartID)
     }
 }
 
+if(!function_exists('showCoupon')) {
+    function showCoupon() {
 
-// function showCoupon()
-// {
-
-//     try {
-
-
-//         $stmt = $GLOBALS['conn']->prepare($sql);
-
-//         $stmt->execute();
-
-//         return $stmt->fetchAll();
-//     } catch (\Exception $e) {
-//         debug($e);
-//     }
-// }
-
-
-if (!function_exists('showCoupon')) {
-    function showCoupon()
-    {
         try {
-            $sql = "SELECT km.ma_khuyenmai, km.trang_thai FROM tb_chi_tiet_giohang as ci INNER JOIN tb_khuyenmai as km  ON ci.id_khuyenmai	= km.id ORDER BY id_khuyenmai DESC";
-
-            $stmt = $GLOBALS['conn']->prepare($sql);
-
+            $sql = "
+            SELECT * FROM `tb_khuyenmai` WHERE 1";
+            $stmt = $GLOBALS["conn"]->prepare($sql);
             $stmt->execute();
 
             return $stmt->fetchAll();
-        } catch (\Exception $e) {
+
+        }
+        catch (Exception $e) {
             debug($e);
         }
+
     }
 }
