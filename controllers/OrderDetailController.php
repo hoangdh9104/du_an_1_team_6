@@ -62,13 +62,3 @@ function tb_donhangUpdateClient($id)
 
 }
 
-
-// function tb_donhangDelete($id)
-// {
-//     delete('tb_donhang', $id);
-
-//     $_SESSION['success'] = 'Thao tác thành công!';
-
-//     header('Location: ' . BASE_URL_ADMIN . '?act=tb_donhang');
-//     exit();
-// }

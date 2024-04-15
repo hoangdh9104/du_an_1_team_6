@@ -1,7 +1,12 @@
 <!-- Header -->
 <div id="main">
+    <?php if (isset($_SESSION['success'])) : ?>
+        <div class="alert alert-success">
+            <?= $_SESSION['success'] ?>
+        </div>
+        <?php unset($_SESSION['success']); ?>
+    <?php endif; ?>
     <div class="SignIn container">
-
         <form action="" method="POST" class="user">
             <div class="form-SignIn">
                 <div class="left-form-Sign-In">

@@ -15,7 +15,6 @@ function categoryViewOnHome(){
 }
 if(!function_exists('listAllDanhMuc')) {
     function listAllDanhMuc() {
-
         try {
             $sql = "
             SELECT `id`, `name` FROM `tb_danhmuc` WHERE 1";

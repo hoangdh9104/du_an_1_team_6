@@ -1,3 +1,4 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <div id="main">
     <div class="text_cart">
         <p>HOME</p>
@@ -8,7 +9,7 @@
 
     <div class="mt-10" style="margin-top: 30px;">
 
-        <div class="table-cart" data-aos="zoom-out-right" >
+        <div class="table-cart" data-aos="zoom-out-right">
             <table>
                 <tr>
                     <th>ID</th>
@@ -20,7 +21,7 @@
                 </tr>
                 <?php
                 if (isset($_SESSION['user'])) :
-                foreach ($orders as $order) :
+                    foreach ($orders as $order) :
                 ?>
                     <tr>
                         <td><?= $order['id']; ?></td>
@@ -51,9 +52,9 @@
                         </td>
                     </tr>
                 <?php
-                endforeach;
-            endif;
-          
+                    endforeach;
+                endif;
+
                 ?>
             </table>
         </div>

@@ -17,6 +17,7 @@ function updateQuantityByCartIDAndProductID($cartID, $productID, $quantity)
         debug($e);
     }
 }
+
 function deleteCartItemByCartIDAndProductID($cartID, $productID)
 {
     try {

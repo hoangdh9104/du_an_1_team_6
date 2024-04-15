@@ -5,13 +5,11 @@ require_once './commons/env.php';
 require_once './commons/helper.php';
 require_once './commons/connect-db.php';
 require_once './commons/model.php';
-
 // Require file trong controllers và models
 require_file(PATH_CONTROLLER);
 require_file(PATH_MODEL);
 // Điều hướng
 $act = $_GET['act'] ?? '/';
-
 // Biến này cần khai báo được link cần đăng nhập mới vào được
 $arrRouteNeedAuth = [
     'cart-add',
@@ -35,6 +33,8 @@ match ($act) {
     'login' => authenShowFormLogin(),
     'logout' => authenLogout(),
     'sing-up' => authenShowFormSingup(),
+    //contact
+    'contact' => showFormContact(),
     // Cart
     // 'cart' => cartViews(),
     'cart-add' => cartAdd($_GET['id_sanpham'], $_GET['so_luong']),
@@ -45,9 +45,7 @@ match ($act) {
 
     'order-checkout' => orderCheckOut(),
     'order-purchase' => orderPurchase(),
-    'order-success' => orderSuccess(),
-
-    // 'order-detail-client' => orderDetail(),
+    // 'order-success' => orderSuccess(),
     'order-detail-client' => historyOrder(),
     'order-showOne' => tb_donhangShowOneClient($_GET['id']),
     'order-update' => tb_donhangUpdateClient($_GET['id']),

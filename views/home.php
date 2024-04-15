@@ -9,6 +9,8 @@
     </div>
 
 </div>
+<?php 
+?>
 <!-- Background -->
 <div class="background">
     <img src="assets/client/src/img/slide1.png" alt="">
@@ -119,7 +121,7 @@
                     <div class="test">
                         <img src="<?= BASE_URL . $product['img_thumbnail'] ?>" alt="" width="100%" height="210px">
                     </div>
-                    <p><a href="#" onclick="showProduct()">Quick View</a></p>
+                    <p><a href="<?= BASE_URL . '?act=product-detail&id=' . $product['id']?>">Xem chi tiết</a></p>
                     <div class="name-item-image-product">
                         <div class="price-name-item-image-product">
                             <p><?= $product['name'] ?></p>

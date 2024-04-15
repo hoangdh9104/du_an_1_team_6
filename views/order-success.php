@@ -6,6 +6,6 @@
     <title>Đặt hàng thành công</title>
 </head>
 <body>
-    <h1>Đặt hàng thành công</h1>
+    <h1>Đặt hàng thành công, cảm ơn quý khách</h1>
 </body>
 </html>

@@ -13,7 +13,6 @@
                     <th>Trường dữ liệu</th>
                     <th>Dữ liệu</th>
                 </tr>
-
                 <?php foreach ($order as $fieldName => $value) : ?>
 
                     <tr>
